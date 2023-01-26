@@ -1,0 +1,190 @@
+<load-page ng-show="cm.loading"></load-page>
+<form name="cm.form" ng-submit="cm.applyForm()" novalidate>
+    <div class="row">
+        <div class="col-md-3 col-sm-5">
+            <image-uploader image="cm.tmpRolecall.image" on-image-uploaded="cm.imageChanged(image)"
+                no-image-url="'/assets/images/no-image.jpg'" upload-config="cm.uploadConfig"
+            ></image-uploader>
+            <p class="text-danger" ng-show="cm.fileUpload.errors.firstName != undefined"
+               ng-repeat="errorMessage in cm.fileUpload.errors.firstName">{{ errorMessage }}</p>
+        </div>
+        <div class="col-md-9 col-sm-7">
+            <div class="pull-right">
+                <button type="submit" class="btn btn-success btn-sm" ng-disabled="cm.form.processing === true">Save
+                    <i class="fa fa-save"></i>
+                </button>
+                <button ng-click="cm.cancelForm()" type="button" class="btn btn-danger btn-sm" ng-disabled="cm.form.processing === true">
+                    <i class="fa fa-ban"></i>
+                </button>
+            </div>
+            <br/>
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.projectId != undefined }">
+                <label class="control-label">Project</label>
+                <p class="text-danger" ng-show=" cm.form.errors.projectId != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.projectId">{{ errorMessage }}</p>
+                <div class="input-group">
+                    <ui-select ng-model="cm.tmpRolecall.project" name="project" theme="bootstrap" ng-change="cm.form.errors.projectId = undefined">
+                        <ui-select-match placeholder="Select or Create a new Project">{{ $select.selected.name }}</ui-select-match>
+                        <ui-select-choices repeat="item in cm.projectList | filter: $select.search track by item.id">
+                            <div ng-bind-html="item.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"
+                                ng-click="cm.showProjectFormModal()"
+                                ng-disabled="cm.form.processing === true"
+                        ><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-default" type="button"
+                                ng-click="cm.showProjectFormModal(cm.tmpRolecall.project)"
+                                ng-disabled="cm.form.processing === true"
+                        ><i class="fa fa-pencil"></i></button>
+                    </span>
+                </div>
+
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.name != undefined }">
+                <label class="control-label">Role Name</label>
+                <p class="text-danger" ng-show=" cm.form.errors.name != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.name">{{ errorMessage }}</p>
+                <input class="form-control" name="name" type="text" ng-model="cm.tmpRolecall.name" ng-change="cm.form.errors.name = undefined" >
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.description != undefined }">
+                <label class="control-label">Role Description</label>
+                <p class="text-danger" ng-show=" cm.form.errors.description != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.description">{{ errorMessage }}</p>
+                <textarea class="form-control" name="description" ng-model="cm.tmpRolecall.description"  ng-change="cm.form.errors.description = undefined"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.rolecallType != undefined }">
+                <label class="control-label">Type</label>
+                <p class="text-danger" ng-show=" cm.form.errors.rolecallType != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.rolecallType">{{ errorMessage }}</p>
+                <select class="form-control" ng-options="rolecallType as rolecallType.name
+                        for rolecallType in cm.rolecallTypeList track by rolecallType.id"
+                        ng-model="cm.tmpRolecall.type" ng-change="cm.form.errors.rolecallType = undefined"></select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.requiredTalentsCount != undefined }">
+                <label class="control-label">Required Talents</label>
+                <p class="text-danger" ng-show="cm.form.errors.requiredTalentsCount != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.requiredTalentsCount">{{ errorMessage }}</p>
+                <input type="text" class="form-control" ng-model="cm.tmpRolecall.requiredTalentsCount">
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.startDate != undefined }">
+                <label class="control-label">Start Date</label>
+                <div class="input-group">
+                    <p class="text-danger" ng-show="cm.form.errors.startDate != undefined"
+                       ng-repeat="errorMessage in cm.form.errors.startDate">{{ errorMessage }}</p>
+                    <input datetimepicker
+                           options="cm.timePickerOptions"
+                           ng-model="cm.tmpRolecall.startDate"
+                           type="text" class="form-control" readonly="readonly"/>
+                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.endDate != undefined }">
+                <label class="control-label">End Date</label>
+                <div class="input-group">
+                    <p class="text-danger" ng-show="cm.form.errors.endDate != undefined"
+                       ng-repeat="errorMessage in cm.form.errors.endDate">{{ errorMessage }}</p>
+                    <input datetimepicker
+                           options="cm.timePickerOptions"
+                           ng-model="m.tmpRolecall.endDate"
+                           type="text" class="form-control" readonly="readonly"/>
+                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.location != undefined || (cm.form.location.$invalid && cm.form.$submitted) }">
+                <label class="control-label">Set Location</label>
+                <p class="text-danger" ng-show="cm.form.errors.location != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.location">{{ errorMessage }}</p>
+                <p class="text-danger" ng-show="cm.form.location.$invalid && cm.form.$submitted">You have to select a valid location.</p>
+                <input type="text" name="location" class="form-control" ng-model="cm.tmpRolecall.location.name"
+                       vs-google-autocomplete
+                       vs-autocomplete-validator
+                       ng-change="cm.form.errors.location = undefined"
+                       vs-place-id="cm.tmpRolecall.location.placeId"
+                       vs-street-number="cm.tmpRolecall.location.streetNumber"
+                       vs-street="cm.tmpRolecall.location.street"
+                       vs-city="cm.tmpRolecall.location.city"
+                       vs-state="cm.tmpRolecall.location.state"
+                       vs-country-short="cm.tmpRolecall.location.countryCode"
+                       vs-country="cm.tmpRolecall.location.country"
+                       vs-post-code="cm.tmpRolecall.location.postCode"
+                       vs-district="cm.tmpRolecall.location.district"
+                       vs-latitude="cm.tmpRolecall.location.latitude"
+                       vs-longitude="cm.tmpRolecall.location.longitude"
+                       ng-change="cm.form.errors.location = undefined"
+                       ng-required="true"
+                >
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.searchRadius != undefined }">
+                <label class="control-label">Search Radius</label>
+                <p class="text-danger" ng-show="cm.form.errors.searchRadius != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.searchRadius">{{ errorMessage }}</p>
+                <select class="form-control" ng-model="cm.tmpRolecall.searchRadius"
+                    ng-options="radius.value as radius.name for radius in cm.searchRadiusList"
+                >
+                    <option value="">Worldwide</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group" ng-class="{ 'has-error' : cm.form.errors.unionTypes != undefined }">
+                <label class="control-label">Union Type</label>
+                <p class="text-danger" ng-show="cm.form.errors.unionTypes != undefined"
+                   ng-repeat="errorMessage in cm.form.errors.unionTypes">{{ errorMessage }}</p>
+                <ui-select multiple ng-model="cm.tmpRolecall.unionTypes" name="unionTypes" theme="bootstrap" close-on-select="true" style="width: 100%;"
+                    ng-change="cm.form.errors.unionTypes = undefined"
+                >
+                    <ui-select-match placeholder="Select union type...">{{ $item.label }}</ui-select-match>
+                    <ui-select-choices repeat="type in cm.unionTypeList | filter: $select.search track by type.id">
+                        <div ng-bind-html="type.label | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Payment Type</label>
+                <select class="form-control" ng-model="cm.tmpRolecall.paymentType"
+                        ng-options="item.value as item.name for item in cm.paymentTypeList"
+                >
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Gender: </label>
+                <select class="form-control" ng-model="cm.tmpRolecall.roleGender"
+                    ng-options="item.value as item.name for item in cm.genderList"
+                >
+                    <option value="">Any</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Age:</label>
+                <rzslider rz-slider-model="cm.age.value.minValue"
+                          rz-slider-high="cm.age.value.maxValue"
+                          rz-slider-options="cm.age.slider"
+                ></rzslider>
+            </div>
+        </div>
+    </div>
+</form>
+<requirement-sheet-form requirement-sheet="cm.tmpRolecall.requirementSheet"></requirement-sheet-form>
+<project-form-modal on-saved="cm.projectFormModalSaved(project)"></project-form-modal>

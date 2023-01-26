@@ -1,0 +1,836 @@
+<div class="row father text-primary" style="padding-bottom: 20px;" ng-if="cm.header==true">
+    <div class="col-md-4 col-sm-4 col-xs-4" style="align-self: center;">
+        <div> <span>https://a2odev.com</span> </div>
+        <div class="margin-vertical"> <span>mail@demo.io</span> </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4" ng-if="cm.titleItem.source =='gotitle'">
+        <img src="/assets/images/logo_gotitle.png" class="logo center-block img-responsive" width="70">
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4" ng-if="cm.titleItem.source != 'gotitle'">
+        <img src="/assets/images/logo_blue.png" class="logo center-block img-responsive" width="100">
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4 text-right" style="align-self: center;">
+        <div ng-if="cm.titleItem.owner.profile.companyName != null"><span>{{ cm.titleItem.owner.profile.companyName }}</span></div>
+        <div ng-if="cm.titleItem.owner.profile.companyName == null"><span>{{ cm.titleItem.owner.name }} {{ cm.titleItem.owner.lastName }}</span></div>
+        <div class="margin-vertical"><span>Title Report</span></div>
+    </div>
+</div>
+
+<div class="row margin-vertical">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+                    <span>I. </span>
+                    <span class="text-vertical">ORDER</span>
+                    <span class="text-vertical">DETAILS</span>
+                </div>
+            <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 100px;" >
+                <div class="row">
+                    <div class="row-text-pdf"
+                         ng-if="cm.titleItem.source=='gotitle' && cm.titleItem.customer.companyName!=null">
+                        <strong class="control-label text-primary">Company Name: </strong>
+                        <strong class="capitalize">{{cm.titleItem.customer.companyName}}</strong>
+                    </div>
+                    <div class="row-text-pdf"
+                         ng-if="cm.titleItem.source=='gotitle' && cm.titleItem.customer.fileNumber!=null">
+                        <strong class="control-label text-primary">File Number: </strong>
+                        <strong class="capitalize">{{cm.titleItem.customer.fileNumber}}</strong>
+                    </div>
+                    <div class="row-text-pdf"
+                         ng-if="cm.titleItem.source=='gotitle' && cm.titleItem.customer.name!=null">
+                        <strong class="control-label text-primary">Client Name: </strong>
+                        <strong class="capitalize">{{cm.titleItem.customer.name}}</strong>
+                    </div>
+                    <div class="row-text-pdf"
+                         ng-if="cm.titleItem.source=='gotitle' && cm.titleItem.customer.companyFileNumber!=null">
+                        <strong class="control-label text-primary">Client File Number: </strong>
+                        <strong class="capitalize">{{cm.titleItem.customer.companyFileNumber}}</strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.location.district!=null">
+                        <strong class="control-label text-primary">County: </strong>
+                        <span class="capitalize">{{ cm.titleItem.location.district }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.location.name!=null">
+                        <strong class="control-label text-primary">Address: </strong>
+                        <span class="capitalize">{{ cm.titleItem.legalAddress }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.location.state!=null">
+                        <strong class="control-label text-primary">State: </strong>
+                        <span class="capitalize">{{ cm.titleItem.location.state | state  }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.apartment!=null">
+                        <strong class="control-label text-primary">Condo/Unit/Apartment #: </strong>
+                        <span class="capitalize">{{ cm.titleItem.apartment }}</span>
+                    </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.dateSearch !=null">
+                        <strong class="control-label text-primary">Date Searched: </strong>
+                        <span>{{ cm.titleItem.dateSearch.format("LL") }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.dateEffective !=null">
+                        <strong class="control-label text-primary">Date Effective: </strong>
+                        <span>{{ cm.titleItem.dateEffective.format("LL") }}</span>
+                    </div>
+                </div>
+                <div class="row"ng-if="cm.titleItem.source=='gotitle'">
+                    <div class="row-text-pdf" ng-if="cm.titleItem.buyerList.length > 0">
+                        <strong class="control-label text-primary">Buyers: </strong>
+                        <strong class="capitalize" ng-repeat="buyer in cm.titleItem.buyerList">{{buyer.name}}, </strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.sellerList.length > 0">
+                        <strong class="control-label text-primary">Sellers: </strong>
+                        <strong class="capitalize" ng-repeat="seller in cm.titleItem.sellerList">{{seller.name}}, </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="cm.titleItem.searchType!= null && cm.titleItem.searchTypeDetail!=null">
+                        <strong><span class="control-label text-primary">Search Type: </span></strong>
+                        <span class="capitalize">{{ cm.snakeToString(cm.titleItem.searchType) }} {{ cm.snakeToString(cm.titleItem.searchTypeDetail) }}</span>
+                        <span>{{ cm.titleItem.searchTypeDetailValue }}</span>
+                        <span ng-if="cm.titleItem.searchTypeDetail=='update'">{{ cm.titleItem.titleDetail.searchDateUpdated.format('LL') }}</span>
+                        <span ng-if="cm.titleItem.searchTypeDetail=='full' || cm.titleItem.searchTypeDetail=='limited'">YR</span>
+                    </div>
+                </div>
+                <div class="row" ng-if="cm.titleItem.source=='gotitle'">
+                    <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.searchTypeCopiesRequested=='full_copies'">
+                        <spam>Full Copies </spam>
+                    </div>
+                    <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.searchTypeCopiesRequested=='pertinent_pages_only'">
+                        <spam>Pertinent Page Only </spam>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="row margin-vertical">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>II. </span>
+        <span class="text-vertical">LEGAL</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 70px;">
+        <div style="width: 100%">
+            <div class="row">
+                <div class="row-text-pdf" ng-if="cm.titleItem.type != null">
+                    <strong class="control-label text-primary">Property Type: </strong>
+                    <span class="capitalize">{{ cm.titleItem.type == 'metes_and_bounds'? "Metes and Bounds": cm.titleItem.type }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.condoName != null">
+                    <strong class="control-label text-primary">Name: </strong>
+                    <span class="capitalize">{{ cm.titleItem.condoName }}</span>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="row-text-pdf" ng-if="!cm.titleItem.titleDetail.isOpenSection &&
+                cm.titleItem.district != null">
+                    <strong class="control-label text-primary">District: </strong>
+                    <span>{{ cm.titleItem.district }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="!cm.titleItem.titleDetail.isOpenSection &&
+                cm.titleItem.landLot != null">
+                    <strong class="control-label text-primary">Land Lot: </strong>
+                    <span>{{ cm.titleItem.landLot}}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.section != null">
+                    <strong class="control-label text-primary">Section: </strong>
+                    <span>{{ cm.titleItem.section }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.isOpenSection &&
+                cm.titleItem.township != null">
+                    <strong class="control-label text-primary">Township: </strong>
+                    <span>{{ cm.titleItem.township }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.isOpenSection &&
+                cm.titleItem.range != null">
+                    <strong class="control-label text-primary">Range: </strong>
+                    <span>{{ cm.titleItem.range }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.lot != null">
+                    <strong class="control-label text-primary">Lot/Condo Unit: </strong>
+                    <span>{{ cm.titleItem.lot }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.block != null">
+                    <strong class="control-label text-primary">Block: </strong>
+                    <span>{{ cm.titleItem.block }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.building != null">
+                    <strong class="control-label text-primary">Building: </strong>
+                    <span>{{ cm.titleItem.titleDetail.building }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.pod != null">
+                    <strong class="control-label text-primary">Pod: </strong>
+                    <span>{{ cm.titleItem.pod }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.phase != null">
+                    <strong class="control-label text-primary">Phase: </strong>
+                    <span>{{ cm.titleItem.phase }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.subdivisionSection != null">
+                    <strong class="control-label text-primary">Subdivision Section: </strong>
+                    <span>{{ cm.titleItem.subdivisionSection }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.unit != null">
+                    <strong class="control-label text-primary">Unit: </strong>
+                    <span>{{ cm.titleItem.unit }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.parking != null">
+                    <strong class="control-label text-primary">Parking: </strong>
+                    <span>{{ cm.titleItem.parking }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.storage != null">
+                    <strong class="control-label text-primary">Storage: </strong>
+                    <span>{{ cm.titleItem.storage }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.garage != null">
+                    <strong class="control-label text-primary">Garage: </strong>
+                    <span>{{ cm.titleItem.garage }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.wine != null">
+                    <strong class="control-label text-primary">Wine: </strong>
+                    <span>{{ cm.titleItem.wine }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.interestCommon != null">
+                    <strong class="control-label text-primary">% Interest In Common Elements: </strong>
+                    <span>{{ cm.titleItem.interestCommon }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.interestResidential != null">
+                    <strong class="control-label text-primary">% Interest In Residential Elements: </strong>
+                    <span>{{ cm.titleItem.titleDetail.interestResidential }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.tract != null">
+                    <strong class="control-label text-primary">Tract: </strong>
+                    <span>{{ cm.titleItem.titleDetail.tract }}</span>
+                </div>
+                <div class="row-text-pdf" ng-if="cm.titleItem.titleDetail.acres != null">
+                    <strong class="control-label text-primary">Acres: </strong>
+                    <span>{{ cm.titleItem.titleDetail.acres }}</span>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px" ng-if="cm.titleItem.titleDetail.isOpenSection && cm.titleItem.type !== 'metes_and_bounds'">
+                <div class="col-md-11">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3" ng-repeat="z1 in cm.zoneDefList">
+                            <strong><span style="text-transform: uppercase">{{z1}}</span> 1/4</strong>
+                            <div ng-repeat="z2 in cm.zoneDefList" style="margin-left: 10px;">
+                                <i class="far fa-check-square" ng-class="{'fa-check-square': cm.titleItem.zones[z1][z2], 'fa-square': !cm.titleItem.zones[z1][z2]}"></i>
+                                <span style="text-transform: uppercase">{{z2}}</span> 1/4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;" ng-repeat="titleBookPageDef in cm.titleBookPageDefList" ng-if="titleBookPageDef.hasResults">
+                <div class="col-md-11">
+                    <div><strong>{{ titleBookPageDef.name }}</strong></div>
+                    <div class="row" ng-repeat="titleBookPage in cm.titleItem.titleBookPageList | filter: cm.filterTitleBookPage(titleBookPageDef.code)">
+                        <div class="row-text-pdf" ng-if="titleBookPage.book != null">
+                            <strong class="control-label text-primary">Book: </strong>
+                            <span>{{ titleBookPage.book }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="titleBookPage.page != null">
+                            <strong class="control-label text-primary">Page: </strong>
+                            <span>{{ titleBookPage.page }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="titleBookPage.withoutBookPageInfo != null">
+                            <strong class="control-label text-primary">{{ titleBookPageDef.shortName }} Without Book and Pages: </strong>
+                            <span>{{ titleBookPage.withoutBookPageInfo }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px" ng-if="cm.titleItem.longLegal">
+                <div class="col-md-11">
+                    <p>See Exhibit A for full legal description.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>III. </span>
+        <span class="text-vertical">CURRENT</span>
+        <span class="text-vertical">OWNER</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 100px">
+        <div class="row father" ng-repeat="deed in cm.titleItem.deedList| filter :{currentOwner:true}"
+             style="padding-bottom: 10px;">
+            <div class="row-text-pdf page-jump">
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="deed.grantee !=null">
+                        <span class="capitalize">{{ deed.grantee }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-text-pdf"
+                         ng-if="deed.deedBook !=null">
+                        <strong class="control-label text-primary">Deed Book: </strong>
+                        <span>{{ deed.deedBook}}</span>
+                    </div>
+                    <div class="row-text-pdf"
+                         ng-if="deed.deedPage !=null">
+                        <strong class="control-label text-primary">Page: </strong>
+                        <span>{{ deed.deedPage }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.mortgageList.length > 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>IV. </span>
+        <span class="text-vertical">SECURITY</span>
+        <span class="text-vertical">INTERESTS</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 126px;">
+        <div class="row father" ng-repeat="mortgage in cm.titleItem.mortgageList"
+             style="padding-bottom: 10px;">
+            <div class=" control-label text-primary index-style">
+                {{ $index+1 }}
+            </div>
+            <div class="row page-jump">
+                <div class="row-text-pdf">
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="mortgage.deedType.name !=null">
+                        <strong class="capitalize">{{ mortgage.deedType.name }}</strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="mortgage.deedBook !=null">
+                        <strong class="control-label text-primary">Deed Book: </strong>
+                        <span class="capitalize">{{ mortgage.deedBook}}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="mortgage.deedPage !=null">
+                        <strong class="control-label text-primary">Page: </strong>
+                        <span class="capitalize">{{ mortgage.deedPage}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="mortgage.deedDate !=null">
+                        <strong class="control-label text-primary">Deed Date: </strong>
+                        <span>{{ mortgage.deedDate.format("LL") }} </span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="mortgage.recDate !=null">
+                        <strong class="control-label text-primary">Date Recorded: </strong>
+                        <span>{{ mortgage.recDate.format("LL") }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="mortgage.amountBorrowed !=null">
+                        <strong class="control-label text-primary">Amount : </strong>
+                        <span class="capitalize">$ {{mortgage.amountBorrowed|number:2  }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="mortgage.grantor !=null">
+                        <strong class="control-label text-primary">Grantor: </strong>
+                        <span class="capitalize">{{ mortgage.grantor }}</span>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="mortgage.grantee !=null">
+                        <strong class="control-label text-primary">Grantee: </strong>
+                        <span class="capitalize">{{ mortgage.grantee}}</span>
+                    </div>
+                </div>
+                <div class="row col-md-11 col-sm-11 col-xs-11 secondary-doc" ng-if="mortgage.secondaryDocumentList.length > 0"
+                     ng-repeat="secondary in mortgage.secondaryDocumentList">
+                    <div class="row-text-pdf" ng-if="secondary.assignedTransfer!=null">
+                        <strong class="control-label text-primary">Assigned / Transferred To: </strong>
+                        <span class="capitalize">{{ secondary.assignedTransfer }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="secondary.assignedTransfer==null">
+                        <strong class="control-label text-primary capitalize">{{secondary.deedType.name }}: </strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="secondary.deedBook!=null">
+                        <strong class="control-label text-primary">Deed Book: </strong>
+                        <span class="capitalize">{{ secondary.deedBook}}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="secondary.deedPage!=null">
+                        <strong class="control-label text-primary">Page: </strong>
+                        <span class="capitalize">{{ secondary.deedPage}}</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.mortgageList.length == 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>IV. SECURITY INTERESTS: </strong>
+        <span>No Security Interests were reported by the title abstractor.</span>
+    </div>
+</div>
+
+    <div class="row margin-vertical" ng-if="cm.titleItem.lienList.length > 0">
+        <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+                    <span>V. </span>
+                    <span class="text-vertical">JUDGMENTS</span>
+                    <span class="text-vertical">& LIENS</span>
+                </div>
+            <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 126px;">
+                <div class="row father " ng-repeat="lien in cm.titleItem.lienList"
+                     style="padding-bottom: 10px;">
+                    <div class="index-style">{{ $index+1 }}</div>
+                    <div class="row page-jump">
+                        <div class="row-text-pdf">
+                        <div class="row">
+                            <div class="row-text-pdf" ng-if="lien.deedType.name !=null">
+                                <strong class="capitalize">{{ lien.deedType.name }}</strong>
+                            </div>
+                            <div class="row-text-pdf" ng-if="lien.book !=null">
+                                <strong class="control-label text-primary">Lien Book: </strong>
+                                <span>{{ lien.book}}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="lien.page !=null">
+                                <strong class="control-label text-primary">Page: </strong>
+                                <span>{{ lien.page }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row-text-pdf" ng-if="lien.lienor !=null">
+                                <strong class="control-label text-primary">Lienor: </strong>
+                                <span class="capitalize">{{ lien.lienor}}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="lien.debtor !=null">
+                                <strong class="control-label text-primary">Debtor: </strong>
+                                <span class="capitalize">{{ lien.debtor}} </span>
+                            </div>
+
+                            <div class="row-text-pdf" ng-if="lien.amount !=null">
+                                <strong class="control-label text-primary">Amount: </strong>
+                                <span class="capitalize">$ {{lien.amount|number:2 }}</span>
+                            </div></div>
+                        </div>
+                        <div class="row col-md-11 col-sm-11 col-xs-11 secondary-doc" ng-if="lien.secondaryDocumentList.length > 0"
+                             ng-repeat="secondary in lien.secondaryDocumentList">
+                            <div class="row-text-pdf" ng-if="secondary.assignedTransferred!=null">
+                                <strong class="control-label text-primary">Assigned / Transferred To: </strong>
+                                <span class="capitalize">{{ secondary.assignedTransferred }}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="secondary.assignedTransferred==null">
+                                <strong class="control-label text-primary capitalize">{{secondary.deedType.name }}: </strong>
+                            </div>
+                            <div class="row-text-pdf" ng-if="secondary.book !=null">
+                                <strong class="control-label text-primary">Deed Book: </strong>
+                                <span>{{ secondary.book}}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="secondary.page !=null">
+                                <strong class="control-label text-primary">Page: </strong>
+                                <span>{{ secondary.page}}</span>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.lienList.length == 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>V. JUDGMENTS & LIENS:</strong>
+        <span>No Judgments or Liens were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.easementList.length > 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>VI. </span>
+        <span class="text-vertical">EASEMENTS</span>
+        <span class="text-vertical">& LEASES</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 126px;">
+        <div class="row father" ng-repeat="easement in cm.titleItem.easementList" style="padding-bottom: 10px;">
+            <div class="index-style">{{ $index+1 }}</div>
+            <div class="row page-jump">
+                <div class="row-text-pdf">
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="easement.deedType.name !=null">
+                        <strong class="capitalize">{{ easement.deedType.name }}</strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="easement.deedBook !=null">
+                        <strong class="control-label text-primary">Deed Book: </strong>
+                        <span>{{ easement.deedBook}}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="easement.deedPage !=null">
+                        <strong class="control-label text-primary">Page: </strong>
+                        <span>{{ easement.deedPage }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="easement.deedDate !=null">
+                        <strong class="control-label text-primary">Deed Date: </strong>
+                        <span>{{ easement.deedDate.format("LL") }} </span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="easement.recDate !=null">
+                        <strong class="control-label text-primary">Date Recorded: </strong>
+                        <span>{{ easement.recDate.format("LL") }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="easement.grantor !=null">
+                        <strong class="control-label text-primary">Grantor: </strong>
+                        <span class="capitalize">{{ easement.grantor }}</span>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="easement.grantee !=null">
+                        <strong class="control-label text-primary">Grantee: </strong>
+                        <span class="capitalize">{{ easement.grantee}}</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.easementList.length == 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>VI. EASEMENTS & LEASES:</strong>
+        <span>No Easements or Leases were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.miscCivilProbateList.length > 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>VII.</span>
+        <span class="text-vertical">CIVIL PROBATE</span>
+        <span class="text-vertical">MISCELLANEOUS</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 210px;">
+        <div ng-repeat="mcpDef in cm.miscCivilProbateDefList">
+            <div class="row father" ng-repeat="miscCivilProbate in cm.titleItem.miscCivilProbateList|filter:{deedType:{code:mcpDef.code}}"
+                 style="padding-bottom: 10px;">
+                <div class="index-style">{{ $index+1 }}</div>
+                <div class="row page-jump">
+                    <div class="row-text-pdf">
+                        <div class="row">
+                            <div class="row-text-pdf" ng-if="miscCivilProbate.deedType.name !=null">
+                                <strong class="capitalize">{{ miscCivilProbate.deedType.name }}</strong>
+                            </div>
+                            <div class="row-text-pdf" ng-if="miscCivilProbate.book !=null">
+                                <strong class="control-label text-primary capitalize"><span ng-if="miscCivilProbate.bookType !=null">{{ miscCivilProbate.bookType}} </span>Book: </strong>
+                                <span>{{ miscCivilProbate.book}}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="miscCivilProbate.page !=null">
+                                <strong class="control-label text-primary">Page: </strong>
+                                <span>{{ miscCivilProbate.page }}</span>
+                            </div>
+                            <div class="row-text-pdf" ng-if="miscCivilProbate.fileNumber !=null">
+                                <strong class="control-label text-primary">File Number: </strong>
+                                <span class="capitalize">{{ miscCivilProbate.fileNumber }} </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row-text-pdf" ng-if="miscCivilProbate.instrumentType !=null">
+                                <strong class="control-label text-primary">Instrument Type: </strong>
+                                <span class="capitalize">{{ miscCivilProbate.instrumentType }} </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-11 col-sm-11 col-xs-11" ng-if="miscCivilProbate.note !=null">
+                                <strong class="control-label text-primary">Note: </strong>
+                                <span style="white-space: pre-wrap;">{{ miscCivilProbate.note }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.miscCivilProbateList.length == 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>VII. CIVIL|PROBATE|MISCELLANEOUS :</strong>
+        <span>No Civil|Probate|Miscellaneous were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.covenant != null && cm.titleItem.covenant.hasConditions">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>VIII. </span>
+        <span class="text-vertical">PROTECTIVE</span>
+        <span class="text-vertical">COVENANTS</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 140px;">
+        <div class="row">
+            <div class="row-text-pdf" ng-if="!cm.titleItem.covenant.isMandatoryAssociation ||
+            (cm.titleItem.covenant.isMandatoryAssociation && cm.titleItem.covenant.type =='homeowners_association')">
+                <strong>Protective Covenant</strong>
+            </div>
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.isMandatoryAssociation &&
+            cm.titleItem.covenant.type =='condominium_owners_association'">
+                <strong>Condominium Declaration</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.deedBook !=null">
+                <strong class="control-label text-primary">Deed Book: </strong>
+                <span>{{ cm.titleItem.covenant.deedBook }}</span>
+            </div>
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.deedPage !=null">
+                <strong class="control-label text-primary">Page:  </strong>
+                <span>{{ cm.titleItem.covenant.deedPage }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.instrumentDate !=null">
+                <strong class="control-label text-primary">Instrument Date: </strong>
+                <span>{{ cm.titleItem.covenant.instrumentDate.format("LL") }}</span>
+            </div>
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.dateRecorded !=null">
+                <strong class="control-label text-primary">Date Recorded: </strong>
+                <span>{{ cm.titleItem.covenant.dateRecorded.format("LL") }}</span>
+            </div>
+        </div>
+        <div class="row margin-vertical" ng-if="cm.titleItem.covenant.isMandatoryAssociation">
+            <div class="row-text-pdf" ng-if="cm.titleItem.covenant.type =='homeowners_association'">
+                <strong>Mandatory Home Owners Association</strong>
+            </div>
+            <div class="row-text-pdf" ng-if=" cm.titleItem.covenant.type =='condominium_owners_association'">
+                <strong>Mandatory Condo Owner Association</strong>
+            </div>
+        </div>
+        <div class="secondary-doc page-jump" ng-if="cm.titleItem.covenant.secondaryDocumentList.length > 0" ng-repeat="secondary in cm.titleItem.covenant.secondaryDocumentList">
+            <div class="row-text-pdf" ng-if="secondary.assignedTransferred==null">
+                <strong class="control-label text-primary capitalize">{{secondary.deedType.name }} </strong>
+            </div>
+            <div class="row secondary-doc">
+                <div class="row-text-pdf" ng-if="secondary.deedBook !=null">
+                    <strong class="control-label text-primary">Book: </strong>
+                    <span>{{secondary.deedBook}} </span>
+                </div>
+                <div class="row-text-pdf" ng-if="secondary.deedPage !=null">
+                    <strong class="control-label text-primary">Page: </strong>
+                    <span>{{secondary.deedPage}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.covenant == null || !cm.titleItem.covenant.hasConditions">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>VIII. PROTECTIVE COVENANTS : </strong>
+        <span>No Protective Covenants were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical"  ng-if="cm.titleItem.deedList.length > 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>IX. </span>
+        <span class="text-vertical">CHAIN OF</span>
+        <span class="text-vertical">TITLE</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 112px;">
+        <div class="row father" ng-repeat="deed in cm.titleItem.deedList "
+             style="padding-bottom: 10px;">
+            <div class="index-style">{{ $index+1 }}</div>
+            <div class="row page-jump">
+                <div class="row-text-pdf">
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="deed.deedType.name !=null">
+                        <strong class="capitalize">{{ deed.deedType.name }}</strong>
+                    </div>
+                    <div class="row-text-pdf" ng-if="deed.deedBook !=null">
+                        <strong class="control-label text-primary">Deed Book: </strong>
+                        <span>{{ deed.deedBook}}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="deed.deedPage !=null">
+                        <strong class="control-label text-primary">Page: </strong>
+                        <span>{{ deed.deedPage }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-text-pdf" ng-if="deed.deedDate !=null">
+                        <strong class="control-label text-primary">Deed Date:  </strong>
+                        <span>{{ deed.deedDate.format("LL")  }}</span>
+                    </div>
+                    <div class="row-text-pdf" ng-if="deed.recDate !=null">
+                        <strong class="control-label text-primary">Date Recorded: </strong>
+                        <span>{{ deed.recDate.format("LL") }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="deed.grantor !=null">
+                        <strong class="control-label text-primary">Grantor: </strong>
+                        <span class="capitalize">{{ deed.grantor }} </span>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-11" ng-if="deed.grantee !=null">
+                        <strong class="control-label text-primary">Grantee: </strong>
+                        <span class="capitalize">{{ deed.grantee}}</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.deedList.length == 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>IX. CHAIN OF TITLE: </strong>
+        <span>No Chain of Titles were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.note != null">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>X. </span>
+        <span class="text-vertical">NOTES</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 70px;">
+        <div class="row-text-pdf">
+            <span style="white-space: pre-wrap">{{cm.titleItem.note}} </span>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.note == null">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>X. NOTES: </strong>
+        <span>No Notes were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row margin-vertical" ng-if="cm.titleItem.taxList.length > 0">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title">
+        <span>XI. </span>
+        <span class="text-vertical">TAXES</span>
+    </div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" style=" min-height: 70px;">
+        <div class="row father" style="padding-bottom: 10px;" ng-repeat="tax in cm.titleItem.taxList">
+            <div class="index-style">{{ $index+1 }}</div>
+            <div class="col-md-11 col-sm-11 col-xs-11 page-jump width-pdf">
+                <div class="row page-jump" ng-if="tax.county !=null">
+                    <strong>County Taxes</strong>
+                    <div class="row">
+                        <div class="row-text-pdf">
+                            <strong class="control-label text-primary">County: </strong>
+                            <span class="capitalize">{{ tax.county}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.taxYear !=null">
+                            <strong class="control-label text-primary">Tax Year: </strong>
+                            <span class="capitalize">{{ tax.taxYear}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.taxPayerName !=null">
+                            <strong class="control-label text-primary">Tax Payer Name: </strong>
+                            <span class="capitalize">{{ tax.taxPayerName }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row-text-pdf" ng-if="tax.assessedValue !=null">
+                            <strong class="control-label text-primary">Assessed Value: </strong>
+                            <span class="capitalize">$ {{ tax.assessedValue|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.parcelId !=null">
+                            <strong class="control-label text-primary">Parcel ID: </strong>
+                            <span class="capitalize">{{ tax.parcelId}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.amountPaid !=null">
+                            <strong class="control-label text-primary">Amount Paid: </strong>
+                            <span class="capitalize">$ {{ tax.amountPaid|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.datePaid !=null">
+                            <strong class="control-label text-primary">Date Paid:  </strong>
+                            <span>{{ tax.datePaid.format("LL")  }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.amountOwned !=null">
+                            <strong class="control-label text-primary">Amount Owed: </strong>
+                            <span class="capitalize">$ {{ tax.amountOwned|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.dateDue !=null">
+                            <strong class="control-label text-primary">Date Due: </strong>
+                            <span>{{ tax.dateDue.format("LL") }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row page-jump margin-top" ng-if="tax.municipality !=null">
+                    <strong>Municipal Taxes</strong>
+                    <div class="row">
+                        <div class="row-text-pdf">
+                            <strong class="control-label text-primary">Municipality: </strong>
+                            <span class="capitalize">{{ tax.municipality}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.municipalTaxYear != null">
+                            <strong class="control-label text-primary">Tax Year: </strong>
+                            <span class="capitalize">{{ tax.municipalTaxYear}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.accountNumber !=null">
+                            <strong class="control-label text-primary">Account Number: </strong>
+                            <span>{{ tax.accountNumber}}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.municipalAmountPaid !=null">
+                            <strong class="control-label text-primary">Amount Paid: </strong>
+                            <span class="capitalize">$ {{ tax.municipalAmountPaid|number:2 }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row-text-pdf" ng-if="tax.municipalDatePaid !=null">
+                            <strong class="control-label text-primary">Date Paid: </strong>
+                            <span>{{ tax.municipalDatePaid.format("LL")  }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.municipalAmountOwned !=null">
+                            <strong class="control-label text-primary">Amount Owed: </strong>
+                            <span class="capitalize">$ {{ tax.municipalAmountOwned|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.municipalDateDue !=null">
+                            <strong class="control-label text-primary">Date Due: </strong>
+                            <span>{{ tax.municipalDateDue.format("LL")  }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row page-jump margin-top"
+                     ng-if="tax.water !=null || tax.sewer != null || tax.sanitation != null">
+                    <strong>Services</strong>
+                    <div class="row">
+                        <div class="row-text-pdf" ng-if="tax.water !=null">
+                            <strong class="control-label text-primary">Water: </strong>
+                            <span class="capitalize">$ {{ tax.water|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.sewer !=null">
+                            <strong class="control-label text-primary">Sewer: </strong>
+                            <span class="capitalize">$ {{ tax.sewer|number:2 }}</span>
+                        </div>
+                        <div class="row-text-pdf" ng-if="tax.sanitation !=null">
+                            <strong class="control-label text-primary">Sanitation: </strong>
+                            <span class="capitalize">$ {{ tax.sanitation|number:2 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-vertical page-jump" ng-if="cm.titleItem.taxList.length == 0"">
+    <div class="col-md-1 col-sm-1 col-xs-1 section-vertical-title"></div>
+    <div class="col-md-11 col-sm-11 col-xs-11 section-content-box" >
+        <strong>XI. TAXES: </strong>
+        <span>No Taxes were reported by the title abstractor.</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 align-self-center text-primary page-jump margin-vertical">
+            <span>
+                *This Title report has been generated from information input by the title abstractor into either GoTitle or TitleCloud
+                and is covered by the Error & Omissions insurance of that abstractor which is on file with the American Land
+                Title Exchange
+            </span>
+    </div>
+</div>
+
+<div ng-if="cm.titleItem.longLegal">
+    <div style="page-break-before: always">
+        <h2 class="text-center">Exhibit A</h2>
+        <p style="white-space: pre-line; text-align: justify">{{ cm.titleItem.longLegal }}</p>
+    </div>
+</div>
+
+
+

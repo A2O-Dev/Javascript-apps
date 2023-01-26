@@ -1,0 +1,302 @@
+#wrapper {
+    background-color: #313a4a;
+}
+
+.navbar-brand.logo {
+    font-size: 1.4em;
+    margin-top: 9px;
+    margin-left: 20px;
+}
+
+#page-wrapper {
+    color: #333;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+.group-input{
+    height: 85px;
+}
+
+.separator-line{
+    color: #C1C1C1;
+}
+
+.rzslider .rz-selection{
+    background: #00A885;
+}
+
+.rzslider .rz-pointer{
+    background-color: #00A885;
+}
+.rzslider .rz-pointer.rz-active:after{
+    background-color: #FFFFFF;
+}
+/** Panel dashboard**/
+.panel-dashboard .panel-heading{
+    padding: 0px;
+}
+.panel-dashboard .panel-heading a:link{
+    text-decoration: none;
+}
+.panel-dashboard .panel-heading a {
+    color: #fff;
+}
+.panel-dashboard .panel-heading{
+    background: #25af61;
+}
+
+.panel-dashboard .panel-heading .content-text{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+/** End panel dashboard**/
+
+
+/*** style Tooltip***/
+.panel-dashboard .panel-footer .tooltip.right .tooltip-inner {
+    background-color:#25AF61;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.panel-dashboard .panel-footer .tooltip.right .tooltip-arrow {
+    border-right-color: #25AF61;
+}
+.panel-dashboard .panel-footer .tooltip.left .tooltip-inner {
+    background-color:#25AF61;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.panel-dashboard .panel-footer .tooltip.left .tooltip-arrow {
+    border-left-color: #25AF61;
+}
+/** End Tooltip**/
+
+.line-section{
+    border-color:#dddddd;
+}
+
+.panel-profile-talent .panel-heading{
+    padding: 0px;
+}
+.panel-profile-talent .panel-heading h4{
+    background-color: #25AF61;
+    margin: 0px;
+    padding: 7px;
+}
+
+
+
+/*** End talent profile **/
+
+/** RoleCall Page **/
+.rolecall-page .tab-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.rolecall-page #overview .description-image {
+    margin: 10px;
+    max-width: 200px;
+}
+
+
+/** Rolecall **/
+
+.requirement-sheet-form .form-group {
+    min-height: 137px;
+    margin-bottom: 10px;
+}
+
+.talent-attributes-form .form-group {
+    margin-bottom: 10px;
+}
+
+.form-group.attribute-form .min-max .input-group-addon {
+    min-width: 52px;
+}
+
+/** menu vertical admin **/
+
+.border-top-menu {
+    border-top: 1px solid #e7e7e7;;
+}
+
+/**
+Nav bar adjustments
+ */
+
+.navbar-default .navbar-top-links>li>a {
+
+    color: #fff;
+    line-height: 0.9em;
+}
+
+.navbar-default .navbar-top-links>.open>a,
+.navbar-default .navbar-top-links>.open>a:focus,
+.navbar-default .navbar-top-links>.open>a:hover,
+.navbar-default .navbar-top-links>li>a:hover,
+.navbar-default .navbar-top-links>li>a:focus {
+
+    background-color: #2E8B57;
+
+}
+
+.navbar-default .navbar-top-links>li>a:focus,
+.navbar-default .navbar-top-links>li>a:hover {
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+
+}
+
+@media only screen and (max-width: 767px){
+
+    .navbar-top-links .dropdown-alerts {
+
+        margin-left: -63px;
+
+    }
+
+}
+
+.navbar-top-links .dropdown-alerts .pending {
+    background-color: #eee;
+}
+
+
+/**
+Google Adsense
+ */
+
+.google-ads-responsive { display: inline-block; min-width: 300px; max-width: 970px; width: 100%; height: 60px; }
+#page-wrapper.partial-wrapper { padding-bottom: 60px; }
+@media(min-width: 500px) {
+    .google-ads-responsive { height: 60px; }
+    #page-wrapper.partial-wrapper { padding-bottom: 60px; }
+}
+@media(min-width: 800px) {
+    .google-ads-responsive { height: 90px; }
+    #page-wrapper.partial-wrapper { padding-bottom: 90px; }
+}
+
+/**
+Custom user navbar
+ */
+
+.navbar-top-links li a {
+    padding: 18px;
+    font-size: 0.95em;
+}
+
+.sidebar ul li {
+    border-bottom: none;
+    font-size: 0.95em;
+}
+
+/**
+Custom sidebar
+ */
+@media (min-width: 768px) {
+    #page-wrapper {
+        margin: 0 0 0 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .navbar-inverse .sidebar-nav>.nav>li>a>.fa-fw {
+        display: block;
+        font-size: 30px;
+        margin: auto;
+    }
+    .navbar-inverse .sidebar-nav>.nav>li>a {
+        text-align: center;
+        padding: 20px 15px;
+    }
+    .sidebar .nav-second-level li a {
+        padding-left: 50px;
+    }
+}
+
+.navbar-inverse .nav>li>a:focus, .navbar-inverse .nav>li>a:hover, .navbar-inverse ul li a.active {
+    background-color: #282a3a;
+    color: #8c8ea4;
+}
+.navbar-inverse .nav>li>a.upgrade-account {
+    background-color: #009B94;
+    color: #ccc;
+}
+
+.navbar-inverse .nav>li>a:hover.upgrade-account {
+    color: #fff;
+}
+
+.navbar-inverse ul li a.active>.fa-fw {
+    color:#25AF61;
+}
+
+.bg-secondary, .navbar-inverse, .navbar-inverse .nav>li>a, .bg-secondary>a {
+    color: #868aa8;
+}
+
+.navbar-inverse ul li a.active {
+    color: #fff;
+}
+
+/**
+Page Header
+ */
+
+.page-header .label {
+    font-size: 0.4em;
+    vertical-align: middle;
+}
+
+/**
+    Educations Section and Credits Section
+**/
+
+.table-adaptive.ta-xs .ta-hidden a ,
+.table-adaptive.ta-xs .ta-visible a{
+    text-decoration: none;
+}
+
+.table-adaptive.ta-xs .ta-hidden a i,
+.table-adaptive.ta-xs .ta-visible a i {
+    margin: 3px;
+    text-decoration: none;
+}
+
+/**
+    Attributes Dynamics Validations
+**/
+.icon-required {
+    font-size: 8px;
+    vertical-align: 2px
+}
+
+.attribute-form .text-danger{
+    margin: -8px 0px 0px 0px;
+}
+
+
+/** Ad-Block  **/
+.container-adBlock {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.section-header {
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eee;
+}

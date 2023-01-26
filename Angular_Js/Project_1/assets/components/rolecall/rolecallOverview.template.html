@@ -1,0 +1,177 @@
+<div ng-show="cm.rolecall.editing !== true">
+    <page-messages page-messages="cm.pageMessages"></page-messages>
+    <div class="row">
+        <div class="col-md-3 col-sm-5 text-center" style="height: 200px; ">
+            <div style="position: relative; overflow: hidden; height: 100%; width: 100%" class="img-thumbnail">
+                <img ng-click="cm.showImageViewer()" alt="" style="height:100%; cursor: pointer" class="img-center"
+                     ng-src="{{ cm.rolecall.image.preview.url || '/assets/images/no-image.jpg' }}" />
+            </div>
+        </div>
+        <image-viewer image="cm.rolecall.image.url"></image-viewer>
+        <div class="col-md-9 col-sm-7">
+            <div style="position: absolute; right: 15px; top: 0px; z-index: 10;">
+                <button class="btn btn-primary btn-sm" type="button" ng-click="cm.showForm()"
+                        ng-show="cm.authService.getUser().id == cm.rolecall.castingDirector.user.id && cm.rolecall.status !== 'archived'"
+                >Edit <i class="fa fa-pencil"></i></button>
+                <button class="btn btn-default btn-sm" type="button"
+                        ng-show="cm.authService.getUser().id == cm.rolecall.castingDirector.user.id && cm.rolecall.status !== 'archived' "
+                        ng-click="cm.showShareRolecall()"
+                >
+                    <i class="fa fa-share-alt fa-lg"></i>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <h4>Project Name</h4>
+                        <p>{{ cm.rolecall.project.name }}</p>
+                    </div>
+                    <div ng-show="cm.rolecall.project.description">
+                        <h4>Project Description</h4>
+                        <p>{{ cm.rolecall.project.description }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <h4>Role Name</h4>
+                        <p>{{ cm.rolecall.name }}</p>
+                    </div>
+                    <div ng-show="cm.rolecall.description">
+                        <h4>Role Description</h4>
+                        <p>{{ cm.rolecall.description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fa fa-user" aria-hidden="true"></i> Posted By: </label>
+                        <a href="/casting-directors/{{ cm.rolecall.castingDirector.id }}/profile#!?getback=true"
+                        >{{ cm.rolecall.castingDirector.firstName}} {{ cm.rolecall.castingDirector.lastName }}</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label><i class="fa fa-calendar" aria-hidden="true"></i> Post Date: </label>
+                        {{ cm.rolecall.createdAt.format('LL') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-vcard-o" aria-hidden="true"></i><strong> Project Type:</strong> {{ cm.rolecall.project.type.name }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-vcard-o" aria-hidden="true"></i><strong> Acting Type:</strong> {{ cm.rolecall.type.name }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-vcard-o" aria-hidden="true"></i>
+                <strong> Union Type:</strong>
+                <span ng-repeat="type in cm.rolecall.unionTypes">{{ type.label }}{{($last)?"":","}} </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-credit-card" aria-hidden="true"></i><strong> Payment Type:</strong> {{ cm.rolecall.paymentType | paymentType  }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-calendar" aria-hidden="true"></i><strong> Start Date:</strong> {{ cm.rolecall.startDate.format('LL') }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-calendar" aria-hidden="true"></i><strong> End Date:</strong> {{ cm.rolecall.endDate.format('LL') }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-map-marker" aria-hidden="true"></i><strong> Set Location: </strong> {{ cm.rolecall.location.name || 'No Location' }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-search" aria-hidden="true"></i><strong> Search Radius:</strong> {{ cm.rolecall.searchRadius? cm.rolecall.searchRadius +" miles": 'Worldwide' }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-transgender " aria-hidden="true"></i><strong> Gender: </strong>
+                {{ cm.rolecall.roleGender == null? 'Any': (cm.rolecall.roleGender == 'female'? 'Female': 'Male')}}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-vcard-o" aria-hidden="true"></i> <strong> Age: </strong>
+                {{ cm.rolecall.roleAge == null ? "Any": cm.rolecall.roleAge.minValue + '-' + cm.rolecall.roleAge.maxValue }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <i class="fa fa-group" aria-hidden="true"></i><strong> Required Talents:</strong> {{ cm.rolecall.requiredTalentsCount }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <requirement-sheet requirement-sheet="cm.rolecall.requirementSheet"></requirement-sheet>
+        </div>
+    </div>
+</div>
+<rolecall-form rolecall="cm.editingRolecall" on-saved="cm.applyForm(rolecall)"
+               on-cancelled="cm.cancelForm()" ng-show="cm.rolecall.editing == true"
+               upload-config="cm.uploadConfig" ></rolecall-form>
+
+
+<load-page ng-show="cm.loading"></load-page>
+
+
+<!-- Modal -->
+<div class="modal fade" id="shareRolecallModal" tabindex="-1" role="dialog" aria-labelledby="shareRolecallModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-clipboard">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title title-header-clipboard" id="shareRolecallModalLabel"><i class="rcicon-bullhorn"></i> Share RoleCall</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Public Page</label>
+                    <p ng-show="cm.publicUrlCopied" class="text-success">Your link to RoleCall has been copied to your clipboard.</p>
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="publicUrl" readonly="readonly" ng-value="cm.urlPublic">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ngclipboard data-clipboard-target="#publicUrl"
+                                    ngclipboard-success="cm.publicUrlCopySuccess(e);" ngclipboard-error="cm.clipboardError(e);">
+                                <i class="fa fa-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Preview Page (for team only)</label>
+                    <p ng-show="cm.previewUrlCopied" class="text-success">Your link to RoleCall has been copied to your clipboard.</p>
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="previewUrl" readonly="readonly" ng-value="cm.previewUrl">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ngclipboard data-clipboard-target="#previewUrl"
+                                    ngclipboard-success="cm.previewUrlCopySuccess(e);" ngclipboard-error="cm.clipboardError(e);">
+                                <i class="fa fa-clipboard"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

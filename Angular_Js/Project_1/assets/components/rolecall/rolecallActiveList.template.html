@@ -1,0 +1,42 @@
+<load-page ng-show="cm.loading"></load-page>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            <a class="btn btn-primary pull-right" href="/rolecalls/create"><i class="fa fa-plus"></i> New RoleCall</a>
+            Active RoleCalls
+        </h1>
+        <p>You're now in complete control of your casting process. When you create a <strong>RoleCall</strong> you are creating a search
+            for a specific talent type for a specific role. <a href="#moreInfo" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="moreInfo">More Info</a></p>
+        <div id="moreInfo" class="collapse">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <ul>
+                <li>Project Types</li>
+                <li>Acting Types</li>
+                <li>Union Type</li>
+                <li>Payment Type</li>
+            </ul>
+            <hr/>
+            <p><strong class="text-primary">Example:</strong></p>
+            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. 
+                Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, 
+                accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            <a href="#moreInfo" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="moreInfo">Hide Info</a>
+            <hr/>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-4" ng-repeat="rolecall in cm.rolecallActiveList">
+        <rolecall-card rolecall = "rolecall"></rolecall-card>
+    </div>
+    <div class="col-md-12" ng-show="cm.loading !== true && cm.rolecallActiveList.length == 0">
+        <p> </p>
+        <p style="font-size: 1.1em;">You don't have any Active Rolecall. Want to create a new one? <a href="/rolecalls/create"><strong>Start here</strong></a></p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+
+<pagination on-list-pagination="cm.loadRoleCallActiveList(offset,limit)" page-size="cm.limit" total-count="cm.totalCount"></pagination>

@@ -1,0 +1,802 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+p {
+    margin: 0 0 1em;
+}
+
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+    color: #25af61;
+}
+
+*::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+
+.logo {
+    font-family: 'Raleway', sans-serif;
+    height: auto;
+    font-weight: 500;
+    padding: 0px;
+    margins: 0px;
+}
+.logo i {
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+.logo span {
+    vertical-align: middle;
+}
+
+.panel .panel-footer {
+    margin-bottom: 0px;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.navbar-brand.navbar-title {
+    height: 57px;
+    padding: 18px 15px;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.btn-primary:hover,
+.btn-default:hover,
+.panel-primary-hover:hover,
+.panel-primary-hover:hover .panel-heading,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover
+{
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/**
+* Default color
+*/
+.btn-default,
+.bg-default {
+    background-color: #fff;
+}
+
+.btn-default {
+    border-color: #25af61;
+}
+
+.btn-default.ui-select-toggle {
+    color: #333;
+    border-color: rgb(204, 204, 204);
+    outline-color: initial;
+}
+
+body,
+.bg-default {
+    color: #333;
+}
+
+.btn-default
+{
+    color: #25af61;
+}
+
+.btn-select
+{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-select:active:hover,
+.btn-select.active:hover,
+.btn-select:active:focus,
+.btn-select.active:focus {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+}
+
+
+body, .text-default {
+    color: #333;
+}
+
+.text-inverse {
+    color: #fff;
+}
+
+/**
+* Default color Hover
+*/
+
+.bg-default a:hover {
+    color: #25af61;
+}
+
+.btn-default.active,
+.btn-default:active,
+.open>.dropdown-toggle.btn-default,
+.btn-default:hover,
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open>.dropdown-toggle.btn-default.focus,
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover {
+    background-color: #25af61;
+    box-shadow: 0 0 0 2px #fff inset, 0 0 1px rgba(0, 0, 0, 0);
+    color: #fff;
+}
+.btn-default.active,
+.btn-default:active {
+    box-shadow: none;
+}
+
+/**
+* Primary Color
+* #25af61
+* #00a885
+*/
+.bg-primary,
+.btn-primary,
+.navbar-default,
+.panel-primary > .panel-heading,
+.panel-primary-hover:hover .panel-heading,
+.navbar-default .navbar-toggle,
+hr
+{
+    background-color: #25af61;
+}
+
+.bg-primary,
+.btn-primary,
+.navbar-default,
+.panel-primary,
+/*.panel-primary > .panel-heading,*/
+.panel-primary-hover:hover,
+hr
+{
+    border-color: #25af61;
+}
+
+.bg-primary,
+.btn-primary,
+.panel-primary > .panel-heading,
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a,
+.panel-primary-hover:hover .panel-heading h1,
+.panel-primary-hover:hover .panel-heading h2,
+.panel-primary-hover:hover .panel-heading h3,
+.panel-primary-hover:hover .panel-heading h4,
+.navbar-default .navbar-toggle
+{
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6, a,
+.text-primary
+{
+    color: #25af61;
+}
+
+
+/**
+* Primary Color hover
+*/
+.btn-primary:hover,
+.btn-primary.focus,
+.btn-primary:focus,
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover,
+
+.btn-primary:hover.btn-spec-profile,
+.btn-primary.focus.btn-spec-profile,
+.btn-primary:focus.btn-spec-profile,
+.btn-primary.active.focus.btn-spec-profile,
+.btn-primary.active:focus.btn-spec-profile,
+.btn-primary.active:hover.btn-spec-profile,
+.btn-primary:active.focus.btn-spec-profile,
+.btn-primary:active:focus.btn-spec-profile,
+.btn-primary:active:hover.btn-spec-profile,
+.open>.dropdown-toggle.btn-primary.focus.btn-spec-profile,
+.open>.dropdown-toggle.btn-primary:focus.btn-spec-profile,
+.open>.dropdown-toggle.btn-primary:hover.btn-spec-profile,
+.navbar-default .navbar-toggle:focus.btn-spec-profile,
+.navbar-default .navbar-toggle:hover.btn-spec-profile
+{
+    background-color: #313a4a;
+}
+
+.btn-primary:hover,
+.btn-primary.focus,
+.btn-primary:focus,
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    border-color: #313a4a;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover
+{
+    color: #fff;
+}
+
+.btn-primary:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover
+{
+    box-shadow: 0 0 0 2px #fff inset, 0 0 1px rgba(0, 0, 0, 0);
+}
+
+/**
+* Secondary Color
+*/
+.bg-secondary,
+.navbar-inverse {
+    background-color: #313a4a;
+}
+
+.bg-secondary,
+.navbar-inverse {
+    border-color: #313a4a;
+}
+
+.bg-secondary,
+.navbar-inverse,
+.navbar-inverse .nav>li>a,
+.bg-secondary>a
+{
+    color: #dee0e2;
+}
+
+.text-secondary {
+    color: #313a4a;
+}
+
+
+/**
+* Secondary Color Hover
+*/
+.navbar-inverse .nav>li>a:focus,
+.navbar-inverse .nav>li>a:hover,
+.navbar-inverse ul li a.active,
+.btn-default:hover {
+    background-color: #25af61;
+}
+
+.navbar-inverse .nav>li>a:focus,
+.navbar-inverse .nav>li>a:hover,
+.navbar-inverse ul li a.active,
+.btn-default:hover {
+    border-color: #25af61;
+}
+
+.bg-secondary a:hover,
+.navbar-inverse ul li a.active {
+    color: #fff;
+}
+
+/** Navbar */
+.navbar-nav {
+    margin: 0px;
+}
+
+
+
+/**
+* Buttons
+*/
+.btn {
+    border-radius: 4px;
+    /*padding: 6px 12px;*/
+}
+.btn-default {
+    background-color: transparent;
+}
+.btn-lg {
+    padding: 16px 18px;
+    font-weight: 600;
+}
+
+/*
+* end Buttons
+*/
+
+
+/**
+NO padding for Cols
+*/
+.no-gutter > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/**
+Center image
+parent must have fixed height
+and position relative
+ */
+.img-center {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+
+@media only screen and (max-width: 992px){
+
+    .form-control{
+        font-size: 16px;
+    }
+    textarea.form-control {
+        font-size: 16px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+}
+
+/* Clear button styles*/
+
+::-ms-clear {
+    display: none;
+}
+
+.form-control-clear {
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/**
+ Custom style for panels.
+ */
+
+.panel {
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.2);
+    box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.2);
+}
+
+.panel .panel-body a.link-inverse {
+    color: #6f727d;
+}
+
+/**
+Custom style for buttons
+ */
+
+.btn {
+    border-radius: 2px;
+}
+a.btn, button.btn {
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.3);
+    box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.3);
+}
+
+/**
+Custom styles for panel req-profile
+ */
+.panel-req-profile {
+    border-bottom: 3px solid #25af61;
+}
+.panel-req-profile:hover {
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(37, 175, 97, 0.4);
+    box-shadow: 0px 1px 15px 1px rgba(37, 175, 97, 0.4);
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.panel-req-profile>.panel-heading {
+    color: #3c763d;
+    background-color: #fff;
+    border-color: #fff;
+    border-bottom: 1px solid #ebedf2;
+}
+
+.panel-req-profile>.panel-body {
+    color: #6f727d;
+}
+
+.panel-req-profile>.panel-footer {
+    padding: 5px 10px 5px 10px ;
+    min-height: 41px;
+}
+
+/**
+ Custom Styles for panel-spec-profile
+ */
+.panel-spec-profile {
+    border-bottom: 3px solid #00cc99;
+}
+.btn-default.btn-spec-profile,
+.btn-primary.btn-spec-profile,
+.panel-spec-profile .btn-primary {
+    border-color: #00cc99;
+}
+
+.btn-default.btn-spec-profile {
+    color: #00cc99;
+}
+
+.panel-spec-profile .btn-primary,
+.btn-primary.btn-spec-profile {
+    background-color: #00cc99;
+}
+
+.btn-default.active.btn-spec-profile,
+.btn-default:active.btn-spec-profile,
+.open>.dropdown-toggle.btn-default,
+.btn-default:hover.btn-spec-profile,
+.btn-default.active.focus.btn-spec-profile,
+.btn-default.active:focus.btn-spec-profile,
+.btn-default.active:hover.btn-spec-profile,
+.btn-default:active.focus.btn-spec-profile,
+.btn-default:active:focus.btn-spec-profile,
+.btn-default:active:hover.btn-spec-profile,
+.open>.dropdown-toggle.btn-default.focus.btn-spec-profile,
+.open>.dropdown-toggle.btn-default:focus.btn-spec-profile,
+.open>.dropdown-toggle.btn-default:hover.btn-spec-profile {
+    background-color: #00cc99;
+    box-shadow: 0 0 0 2px #fff inset, 0 0 1px rgba(0, 0, 0, 0);
+    color: #fff;
+}
+
+.panel-spec-profile a,
+.panel-spec-profile .text-primary,
+.text-spec-profile
+{
+    color: #00cc99;
+}
+
+.panel-spec-profile:hover {
+    -webkit-box-shadow: 0px 1px 15px 1px rgba(0, 197, 220, 0.4);
+    box-shadow: 0px 1px 15px 1px rgba(0, 197, 220, 0.4);
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.panel-spec-profile>.panel-heading {
+    color: #00cc99;
+    background-color: #fff;
+    border-color: #fff;
+    border-bottom: 1px solid #ebedf2;
+}
+
+.panel-spec-profile>.panel-body {
+    color: #6f727d;
+}
+
+.panel-spec-profile>.panel-footer {
+    padding: 5px 10px 5px 10px ;
+    min-height: 41px;
+}
+
+.navbar-default.navbar-default-spec-profile{
+    background-color: #00cc99;
+    border-color: #00cc99;
+}
+
+.navbar-default.navbar-default-spec-profile .navbar-toggle {
+    background-color: #00cc99;
+}
+
+
+
+
+/**
+ * Table adaptive
+ * Example
+
+<div class="table-adaptive ta-sm">
+    <div class="ta-head">
+        <div class="row">
+            <div class="col-md-8">
+                <span class="ta-th">heading 1</span>
+            </div>
+            <div class="col-md-4">
+                <div class="ta-th">Heading 2</div>
+            </div>
+        </div>
+    </div>
+    <div class="ta-body">
+        <div class="ta-row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="ta-cell"><label class="ta-visible">Heading 1:</label> Cell 1</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ta-cell"><label class="ta-visible">Heading 2:</label> Cell 2</div>
+                </div>
+            </div>
+        </div>
+        <div class="ta-row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="ta-cell"><label class="ta-visible">Heading 1:</label> Cell 1</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ta-cell"><label class="ta-visible">Heading 2:</label> Cell 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ */
+.table-adaptive {
+    margin-bottom: 15px;
+}
+
+.table-adaptive .ta-head {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1;
+    width: 100%;
+}
+
+.table-adaptive .ta-head .ta-th {
+    padding: 5px 0px;
+    font-weight: bold;
+    margin: 0px;
+    display: block;
+    width: 100%;
+}
+
+.table-adaptive .ta-body {
+    position: relative;
+}
+
+.table-adaptive .ta-body .ta-row,
+.table-adaptive .ta-body .ta-tr {
+    border-bottom: 1px dotted #d6d6d6;
+    position: relative;
+}
+
+.table-adaptive .ta-body .ta-row:nth-child(even),
+.table-adaptive .ta-body .ta-tr:nth-child(even) {
+    background: #f6f6f6;
+}
+
+.table-adaptive .ta-body .ta-row:nth-child(odd),
+.table-adaptive .ta-body .ta-tr:nth-child(odd) {
+    background: transparent;
+}
+
+.table-adaptive .ta-body .ta-td,
+.table-adaptive .ta-body .ta-cell {
+    display: block;
+    width: 100%;
+}
+
+.table-adaptive .ta-body .ta-td:first-child,
+.table-adaptive .ta-body .ta-cell:first-child
+{
+    padding-left: 5px;
+}
+
+.table-adaptive  .ta-visible-inline-block,
+.table-adaptive .ta-visible-block,
+.table-adaptive .ta-visible {
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    .table-adaptive.ta-xs .ta-head {
+        display:none;
+    }
+
+    .table-adaptive.ta-xs .ta-visible {
+        display: inline;
+    }
+
+    .table-adaptive.ta-xs .ta-visible-inline-block {
+        display: inline-block;
+    }
+
+    .table-adaptive.ta-xs .ta-visible-block {
+        display: block;
+    }
+
+    .table-adaptive.ta-xs .ta-hidden {
+        display: none;
+    }
+
+    .table-adaptive.ta-xs .ta-body .ta-td:first-child,
+    .table-adaptive.ta-xs .ta-body .ta-cell:first-child
+    {
+        padding-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    .table-adaptive.ta-sm .ta-head {
+        display:none;
+    }
+
+    .table-adaptive.ta-sm .ta-visible {
+        display: block;
+    }
+
+    .table-adaptive.ta-sm .ta-visible-inline-block {
+        display: inline-block;
+    }
+
+    .table-adaptive.ta-sm .ta-visible-block {
+        display: block;
+    }
+
+    .table-adaptive.ta-sm .ta-hidden {
+        display: none;
+    }
+
+    .table-adaptive.ta-sm .ta-body .ta-td:first-child,
+    .table-adaptive.ta-sm .ta-body .ta-cell:first-child
+    {
+        padding-left: 0px;
+    }
+
+}
+
+
+/**
+   Style ui-select multiple
+**/
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item
+{
+    background-color: #fff;
+    border-color: #25af61;
+    color: #25af61;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:hover,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.active.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.active:hover,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active:hover
+{
+    background-color: #25af61;
+    color: #fff;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:hover,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.active.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.active:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.active:hover,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active.focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active:focus,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:active:hover
+{
+    border-color: #25af61;
+    color: #fff;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item:hover
+{
+    box-shadow: 0 0 0 2px #fff inset, 0 0 1px rgba(0, 0, 0, 0);
+}
+/*** End ui-select multiple ***/
+
+
+/**
+Text Area Auto resize
+ */
+textarea.form-control.autoresize {
+    resize: none;
+    overflow: hidden;
+    min-height: 34px; /*same as bootstrap form-control*/
+}
+
+.button-invite {
+    font-family: Avenir, Helvetica, sans-serif;
+    box-sizing: border-box;
+    border-radius: 3px;
+    /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); */
+    color: #FFF;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-text-size-adjust: none;
+    background-color: #2ab27b;
+    border-top: 10px solid #2ab27b;
+    border-right: 18px solid #2ab27b;
+    border-bottom: 10px solid #2ab27b;
+    border-left: 18px solid #2ab27b;
+}
+
+.button-invite:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+
+.comma-separated > *:not(:last-child):after {
+    content: ", ";
+}
+
+.pipe-separated > *:not(:last-child):after {
+    content: "|";
+}

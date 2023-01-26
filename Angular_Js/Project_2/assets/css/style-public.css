@@ -1,0 +1,337 @@
+body {
+    margin-top: 71px;
+}
+.bodyTransition {
+    /*margin-top: 71px;*/
+    background-image:url("../images/alte_neighborhood.jpg");
+    background-size: cover;
+    -webkit-transition: background-image 1s ease-in-out;
+    transition: background-image 1s ease-in-out;
+}
+
+.navbar-brand.logo {
+    font-size: 1.7em;
+    margin-top: 10px;
+}
+.navbar-brand.logo img{
+    max-height: 50px;
+}
+
+.navbar-brand.logo i {
+    font-size: 1.9em;
+}
+
+footer {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.panel-pricing-plan .panel-body ul {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.panel-pricing-plan .panel-body ul>li {
+    border-left: none;
+    border-right: none;
+}
+
+.section-line {
+    text-align: center;
+    width: 120px;
+    height: 3px;
+}
+
+.container-sec{
+    margin-top: 50px;
+}
+
+/** Style of carousel**/
+.carousel-inner .container{
+    padding: 50px 50px 0px 50px;
+    margin: 2.5% 0px 0px 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner .container h1,
+.carousel-inner .container h2{
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.carousel-inner .container h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.carousel-inner .container h2{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.carousel-inner .container-button{
+    padding: 0px 50px 50px 50px;
+    margin: 0px 0px 10.5% 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner .container-button a{
+    padding: 10px;
+    margin: 7px;
+}
+
+.container-slider{
+    -moz-background: url("../images/alte_gov.jpg") no-repeat center;
+    background: url("../images/alte_gov.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.container-slider .searchBar-landing-page{
+    margin-top: 20px;
+}
+
+#main-slider .carousel-inner .item {
+    /*min-height: 610px;*/
+    overflow: hidden;
+}
+
+/*** End Carousel**/
+
+
+/*** Section whatwedo ****/
+.sec-whatwedo{
+    padding: 60px 0 30px;
+    background: #E9EBEE;
+}
+
+.sec-whatwedo .content {
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.sec-whatwedo h1{
+    text-align: center;
+    font-size: 45px;
+    margin: 0 0 20px 0;
+}
+
+.sec-whatwedo .content .founder img{
+    width: 130px;
+    color: #3C4858;
+}
+
+.sec-whatwedo .content .founder p{
+    color: #3C4858;
+}
+
+
+/** end section whatwedo **/
+
+/** section howitwork***/
+
+.sec-howitwork{
+    padding: 50px 0 70px;
+    background: #fff;
+}
+.sec-howitwork h1 {
+    text-align: center;
+    font-size: 45px;
+    padding: 0 0 0 0px;
+}
+
+.sec-howitwork .main-description {
+    font-size: 1.2em;
+}
+
+.sec-howitwork .hiwbox {
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    visibility: visible;
+    animation-name: fadeInUp;
+}
+
+.sec-howitwork .hiwbox .col-sec {
+    min-height: 280px;
+}
+
+.sec-howitwork .hiwbox h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 28px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+.sec-howitwork .title-companies{
+    margin: 0 1em 1em;
+}
+
+/*** end section howitwork**/
+
+/*** section Join **/
+.sec-join{
+    background:url("../images/alte_gov.jpg") center no-repeat;
+    -moz-background: url("../images/alte_gov.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+      padding: 100px 0px 0px;
+    min-height: 572px;
+}
+
+.sec-join h2 {
+    text-align: left;
+    font-size: 30px;
+    color: #fff;
+    margin: 0 0 50px;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+
+.sec-join p {
+    font-size: 15px;
+    color: #fff;
+    line-height: 30px;
+}
+
+.sec-join .btn-primary {
+}
+
+/*** End section Join**/
+
+/** Section Main**/
+.sec-main {
+    background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    padding: 50px 0px 50px;
+}
+
+.sec-main .container {
+    padding: 40px 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*.sec-main .logo {*/
+    /*max-width: 320px;*/
+    /*!*max-width: 30%;*!*/
+/*}*/
+
+.sec-main h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 1.3em;
+}
+
+.sec-main .container-sec h4 {
+    color: #3C4858;
+    font-weight: bold;
+}
+
+.sec-main .role-types h4 {
+    color: #3C4858;
+    font-weight: bold;
+    padding: 7px;
+}
+
+.sec-risk {
+    padding: 50px 0px 50px;
+    background: #E9EBEE;
+}
+
+/*** End section Main **/
+
+
+.sec-risk .riskbox {
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 50px;
+    min-height: 120px;
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+/**Section login**/
+.section-login{
+    background-position: center;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    min-height: inherit;
+ }
+
+.panel-login{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+/**End section login**/
+
+/* section signUp*/
+
+.section-signup{
+    background-position: center;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    min-height: inherit;
+}
+
+.panel-signup{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+/*End section signUp*/
+
+@media (min-width: 768px) {
+    .navbar-nav>li>a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .container-slider .carousel-inner .container h1{
+        font-size: 50px;
+        font-weight: 700;
+    }
+    .container-slider .carousel-inner .container h2{
+        font-size: 35px;
+        text-transform: uppercase;
+    }
+
+    .sec-main .logo {
+        max-width: 30%;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 59px;
+    }
+
+    .sec-main .logo {
+        max-width: 200px;
+    }
+
+    .sec-main h2 {
+        font-size: 20px;
+    }
+
+    .button-landing-page{
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+    }
+
+}

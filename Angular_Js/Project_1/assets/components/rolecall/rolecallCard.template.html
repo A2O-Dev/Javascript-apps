@@ -1,0 +1,33 @@
+<div class="panel panel-default panel-primary-hover panel-dashboard rolecall-card">
+    <div class="panel-heading">
+        <a href="/rolecalls/{{ cm.rolecall.id }}">
+            <div class="img-heading" ng-style="{
+                'background-image': 'url('+ (cm.rolecall.image.preview.url || '/assets/images/no-image.jpg') +')'}">
+            </div>
+        </a>
+        <div class="container-title" ng-click="cm.href()">
+            <h5 class="text-center"><a href="">{{ cm.rolecall.project.name }} - {{ cm.rolecall.name }}</a></h5>
+            <span class="badge bg-secondary"><rolecall-talents-total total="cm.rolecall.totalMatching"></rolecall-talents-total></span>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div style="font-size: 0.8em">
+            <p class="text-secondary"><strong>
+                <i class="fa fa-bullhorn text-primary" data-toggle="tooltip" title="Project" data-placement="top"
+                   aria-hidden="true"></i></strong> {{ cm.rolecall.project.name || 'no Project'}}</p>
+            <p class="text-secondary"><strong>
+                <i class="fa fa-map-marker text-primary" data-toggle="tooltip" title="Location" data-placement="top"
+                   style="padding-right: 4px" aria-hidden="true"></i></strong> {{ cm.rolecall.location.name || 'No location'}}</p>
+            <p class="text-secondary"><strong>
+                <i class="fa fa-calendar-o text-primary" data-toggle="tooltip" title="Start Date" data-placement="top"
+                   aria-hidden="true"></i></strong> {{ cm.rolecall.startDate.format('LL') || 'No start date'}}</p>
+            <p class="text-secondary"><strong>
+                <i class="fa fa-calendar-o text-primary" data-toggle="tooltip" title="End Date" data-placement="top"
+                   aria-hidden="true"></i></strong> {{ cm.rolecall.endDate.format('LL') || 'No End Date' }}</p>
+        </div>
+    </div>
+    <div class="panel-footer" ng-show="false">
+        <a class="btn btn-primary btn-sm" style="padding: 3px 8px 3px 8px" href="javascript:void(0)"><i class="fa fa-check-circle fa-xs" aria-hidden="true"></i></a>
+        <a class="btn btn-default btn-sm" style="padding: 3px 8px 3px 8px"  href="javascript:void(0)"><i class="fa fa-thumbs-down fa-xs" aria-hidden="true"></i></a>
+    </div>
+</div>

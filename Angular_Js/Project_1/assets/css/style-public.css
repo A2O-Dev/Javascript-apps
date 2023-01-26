@@ -1,0 +1,510 @@
+body {
+    margin-top: 71px;
+}
+
+@media(max-width: 767px) {
+    body{
+        margin-top: 58px;
+       }
+}
+
+.navbar-brand.logo {
+    font-size: 1.6em;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+.navbar-brand.logo i {
+    font-size: 1.9em;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand.logo {
+        font-size: 1.7em;
+        margin-top: 11px;
+        margin-left: 0px;
+    }
+
+    .navbar-brand.logo i {
+        font-size: 1.9em;
+    }
+
+    .navbar-nav>li>a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .container-slider .carousel-inner .container h1{
+        font-size: 50px;
+        font-weight: 700;
+    }
+    .container-slider .carousel-inner .container h2{
+        font-size: 35px;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover
+    {
+        color: #fff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+footer {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    min-height: 73px;
+}
+
+.panel-pricing-plan .panel-heading {
+    background-color: #25af61;
+    color: #fff;
+}
+
+.panel-pricing-plan .panel-heading h3 {
+    color: #fff;
+}
+
+.panel-pricing-plan .panel-body {
+    min-height: 505px;
+}
+
+@media only screen and (max-width: 767px) {
+    .panel-pricing-plan .panel-body {
+        min-height: 100%;
+    }
+}
+
+.panel-pricing-plan .panel-border .text-center {
+    background-color: #25af61;
+    border-radius: 1em;
+    color: #fff;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-left: 5em;
+    margin-right: 5em;
+    padding: 0.22rem ;
+    text-align: center;
+}
+
+.panel-pricing-plan .panel-body ul {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.panel-pricing-plan .panel-body ul>li {
+    border-left: none;
+    border-right: none;
+    font-size: 1.1em;
+}
+
+
+
+.section-line {
+    text-align: center;
+    width: 120px;
+    height: 3px;
+}
+
+.container-sec{
+    padding-top: 20px;
+}
+
+/** Style of carousel**/
+.carousel-inner .container {
+    padding: 50px 50px 0px 50px;
+    margin: 7% 0px 0px 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner .container-button {
+    padding: 0px 50px 50px 50px;
+    margin: 0px 0px 10.5% 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.carousel-inner .container-button a {
+    padding: 10px;
+    margin: 7px;
+}
+
+
+.carousel-inner .container h1,
+.carousel-inner .container h2,
+.carousel-inner .container h3 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.carousel-inner .container h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.carousel-inner .container h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.carousel-inner .container .btn-primary{
+
+}
+
+.container-slider{
+    -moz-background: url("../images/RoleCall_Main_Home_Page_Top.jpg") no-repeat center;
+    background: url("../images/RoleCall_Main_Home_Page_Top.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+    /*min-height: 30%px;*/
+}
+
+
+
+
+
+#main-slider .carousel-inner .item {
+    /*min-height: 610px;*/
+    overflow: hidden;
+}
+
+/*** End Carousel**/
+
+/** FILM PITCH ATL **/
+.container-slider.atl {
+    -moz-background: url("../images/atl_skyline-2.jpg") no-repeat center;
+    background: url("../images/atl_skyline-2.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+}
+.carousel-inner.atl .container,
+.carousel-inner.atl .container-button {
+    background-color: rgba(14, 54, 31, 0.4);
+}
+
+
+/*** Section whatwedo ****/
+.sec-whatwedo{
+    padding: 60px 0 20px;
+}
+
+.sec-whatwedo h1{
+    text-align: center;
+    font-size: 45px;
+    margin: 0 0 20px 0;
+}
+
+.sec-whatwedo .content {
+    font-size: 15px;
+}
+
+.sec-whatwedo .content,
+.sec-whatwedo .content h4 {
+    line-height: 30px;
+    text-align: center;
+}
+.sec-whatwedo .content p,
+.sec-whatwedo .content h4 {
+    margin: 0 0 20px;
+}
+
+.sec-whatwedo .content .founder img{
+    width: 130px;
+    color: #3C4858;
+}
+
+.sec-whatwedo .content .founder p{
+    color: #3C4858;
+}
+
+/** end section whatwedo **/
+
+/** section howitwork***/
+
+.sec-howitwork{
+    padding: 30px 0 70px;
+}
+.sec-howitwork h1 {
+    text-align: center;
+    font-size: 45px;
+    padding: 0 0 0 0px;
+    /*margin: 0 0 90px 0px;*/
+    /*text-transform: uppercase;*/
+}
+
+.hiwbox {
+    text-align: center;
+    padding-left:  60px;
+    padding-right: 60px;
+    visibility: visible;
+    animation-name: fadeInUp;
+}
+
+.hiwbox .col-sec{
+    height: 200px;
+}
+
+.hiwbox h4{
+    color: #3C4858;
+    font-weight: bold;
+}
+
+.hiwbox h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 28px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+/*** end section howitwork**/
+
+.sec-text-only {
+    padding: 100px 0px;
+}
+
+.sec-text-only h3 {
+    line-height: 1.5em;
+}
+
+.sec-text-bg {
+    padding: 150px 0px;
+    background:url("../images/RoleCall_Main_Home_Page_Top_Middle.jpg") center no-repeat;
+    color: #fff;
+}
+.sec-text-bg h1,
+.sec-text-bg h2,
+.sec-text-bg h3,
+.sec-text-bg h4,
+.sec-text-bg h5 {
+    color: #fff;
+}
+
+.sec-text-bg .container {
+    padding: 50px 25px;
+    margin: 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*** section Join **/
+.sec-join{
+    background:url("../images/RoleCall_Main_Home_Page_Top_Middle.jpg") center no-repeat;
+    background-size: cover;
+    padding: 100px 0px 0px;
+    min-height: 572px;
+}
+
+.sec-join h2 {
+    text-align: left;
+    font-size: 30px;
+    color: #fff;
+    margin: 0 0 50px;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+
+.sec-join p {
+    font-size: 15px;
+    color: #fff;
+    line-height: 30px;
+}
+
+.sec-join .btn-primary {
+}
+
+/*** End section Join**/
+
+/** Section Risk**/
+.sec-risk{
+    background-size: cover;
+    padding: 40px 0px 0px;
+}
+
+.sec-risk h1 {
+    text-align: center;
+    font-size: 45px;
+    padding: 0 0 0 0px;
+}
+
+.sec-risk .riskbox {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 50px;
+    min-height: 60px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sec-risk .container-sec h4{
+    color: #3C4858;
+    font-weight: bold;
+}
+
+.sec-risk .role-types h4{
+    color: #3C4858;
+    font-weight: bold;
+    padding: 7px;
+}
+
+.sec-risk .container-sec .paragraph{
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    margin: 25px 0 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+/*** End section Risk **/
+
+/** Section Login **/
+.section-login{
+    background: url("../images/RoleCall_Main_Home_Page_Log_in.jpg");
+    min-height: 610px;
+    margin-top: -10px;
+}
+
+.login-form{
+    background: rgba(0, 0, 0, 0) linear-gradient(0deg, #fff 80%, #f5f5f5) repeat scroll 0 0 padding-box;
+    border: 10px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 1;
+    padding: 25px;
+}
+.login-form h1 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.login-form a {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+}
+.login-cta {
+    align-items: center;
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, #f5f5f5, #fff) repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+    opacity: 1;
+    padding: 10px;
+    width: 100%;
+    min-height: 345px;
+}
+/***End Section Login**/
+
+/**Section signup**/
+.section-signup{
+    background: url("../images/RoleCall_Main_Home_Page_Log_inV2.jpg");
+    background-size: cover;
+    min-height: 100vh;
+
+}
+.bg-content{
+    background-color: rgba(0,120,35,.71);
+    min-height:100vh;
+}
+
+.signup-panel .facebook img{
+    display: inline-block;
+}
+
+.signup-panel{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-left-color: rgba(255, 255, 255, 0.8);
+    border-right-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff
+}
+.signup-panel .panel-heading {
+    border-bottom: none;
+}
+.signup-panel a {
+    color: #fff;
+}
+
+.signup-panel .panel-heading{
+    padding: 0px 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.signup-panel .panel-body{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.signup-panel .panel-heading .icon-signup{
+    height: 62px;
+    width: 62px;
+    float: right;
+    background-color: #25AF61;
+    font-size: 40px;
+    padding: 8px 4px;
+    margin-top: -20px;
+}
+.signup-panel .panel-heading h3{
+    margin: 0px 0px 0px 25px;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/**End section signup**/
+
+/**
+Google Adsense
+ */
+.google-ads-responsive { height: 60px; overflow: hidden; }
+@media(min-width: 500px) { .google-ads-responsive { height: 60px; } }
+@media(min-width: 800px) { .google-ads-responsive { height: 90px; } }
+
+
+.page-header .label {
+    font-size: 0.4em;
+    vertical-align: middle;
+}
+
+
+.join-button{
+    font-size: 0.5em;
+    margin-bottom: 5px;
+}
+
+.title-project-req-margin{
+    display: inline-block;
+}
+
+.back-button-margin{
+    margin-right: 10px;
+}
+
+.confirm-invite-panel {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background-color:  rgba(0, 0, 0, 0.8);
+    border-left-color: rgba(0, 0, 0, 0.8);
+    border-right-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 4px solid #25AF61;
+    border-top: 4px solid #25AF61;
+
+}

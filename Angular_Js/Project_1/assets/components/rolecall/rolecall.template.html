@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="container col-md-12">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <div>
+                        <div style="position: absolute; top: 15px; right: 15px; z-index: 10;">
+                            <button ng-click="cm.archiveRolecall()" ng-show="cm.rolecall.status !== 'archived' "
+                                     data-toggle="tooltip" ng-disabled="cm.loading == true"
+                                     title="Archive" data-placement="left" type="button" class="btn btn-default">
+                                    <i class="fa fa-archive"></i></button>
+                            <button ng-click="cm.restore()" ng-show="cm.rolecall.status === 'archived'"
+                                     data-toggle="tooltip" ng-disabled="cm.loading == true"
+                                     title="Restore" data-placement="left" type="button" class="btn btn-default">
+                                    <i class="fa fa-window-restore"></i></button>
+                        </div>
+                        <h1 style="margin-right: 50px">{{ cm.rolecall.project.name }}: {{ cm.rolecall.name }}<span ng-show="cm.rolecall.status === 'archived' "> ({{ cm.rolecall.status }})</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 rolecall-page">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="rolecall-tabs">
+                    <li role="presentation" class="active"><a href="#overview" aria-controls="home" role="tab"
+                                                              data-toggle="tab">Overview</a></li>
+                    <li role="presentation"><a href="#matchedTalents" aria-controls="profile" role="tab"
+                                               data-toggle="tab" id="matchedTalentsTab">
+                        Matches <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="'matched'"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation"><a href="#invitedTalents" aria-controls="messages" role="tab"
+                                               data-toggle="tab" id="invitedTalentsTab">
+                        Invited <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="'invited'"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation"><a href="#selectedTalents" aria-controls="messages" role="tab"
+                                               data-toggle="tab" id="selectedTalentsTab">
+                        Selected <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="'selected'"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation"><a href="#callbackTalents" aria-controls="settings" role="tab"
+                                              data-toggle="tab" id="callbackTalentsTab">
+                        Callback <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="'callback'"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation"><a href="#bookedTalents" aria-controls="settings" role="tab"
+                                               data-toggle="tab" id="bookedTalentsTab">
+                        Booked <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="'booked'"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation"><a href="#passedTalents" aria-controls="settings" role="tab"
+                                               data-toggle="tab" id="passedTalentsTab">
+                        Passed <span class="badge bg-primary"><rolecall-talents-total rolecall="cm.rolecall" status="['passed_by_talent','passed_by_director']"></rolecall-talents-total></span></a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/chats#!?rolecallId={{cm.rolecall.id}}" aria-controls="settings" role="tab">Chat <i class="fa fa-comments fa-lg text-primary"></i></a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="overview">
+                        <rolecall-overview rolecall="cm.rolecall" editable="true" upload-config="cm.uploadConfig"></rolecall-overview>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="matchedTalents">
+                        <matched-talents rolecall="cm.rolecall"></matched-talents>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="invitedTalents">
+                        <invited-talents rolecall="cm.rolecall"></invited-talents>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="selectedTalents">
+                        <selected-talents rolecall="cm.rolecall"></selected-talents>
+                    </div>
+
+                    <div role = "tabpanel"  class="tab-pane" id="callbackTalents" >
+                        <callback-talents rolecall="cm.rolecall"></callback-talents>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="bookedTalents">
+                        <booked-talents rolecall="cm.rolecall"></booked-talents>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="passedTalents">
+                        <passed-talents rolecall="cm.rolecall"></passed-talents>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

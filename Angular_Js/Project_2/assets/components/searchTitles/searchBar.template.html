@@ -1,0 +1,26 @@
+<div class="searchBar">
+    <form ng-submit="cm.search(cm.location)">
+        <div class="input-group input-group-lg input-search-bar">
+            <input type="text" class="form-control" ng-model="cm.location.name"
+                   placeholder="Search the Exchange to Buy a Title."
+                   vs-google-autocomplete="cm.options"
+                   vs-autocomplete-validator
+                   vs-place-id="cm.location.placeId"
+                   vs-street-number="cm.location.streetNumber"
+                   vs-street="cm.location.street"
+                   vs-city="cm.location.city"
+                   vs-state="cm.location.state"
+                   vs-country-short="cm.location.countryCode"
+                   vs-country="cm.location.country"
+                   vs-post-code="cm.location.postCode"
+                   vs-district="cm.location.district"
+                   vs-latitude="cm.location.latitude"
+                   vs-longitude="cm.location.longitude"
+                   ng-required="true"
+            />
+            <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i><span class="hidden-xs"> Search</span></button>
+            </span>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,171 @@
+#wrapper {
+    background-color: #313a4a;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-brand.logo {
+    font-size: 1.4em;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.navbar-brand.logo img{
+    max-height: 40px;
+}
+
+#page-wrapper {
+    color: #333;
+    font-family: 'Lato', sans-serif;
+}
+
+.group-input{
+    height: 85px;
+}
+
+.separator-line{
+    color: #C1C1C1;
+}
+
+.rzslider .rz-selection{
+    background: #00A885;
+}
+
+.rzslider .rz-pointer{
+    background-color: #00A885;
+}
+.rzslider .rz-pointer.rz-active:after{
+    background-color: #FFFFFF;
+}
+/** Panel dashboard**/
+.panel-dashboard .panel-heading{
+    padding: 0px;
+}
+.panel-dashboard .panel-heading a:link{
+    text-decoration: none;
+}
+.panel-dashboard .panel-heading a {
+    color: #fff;
+}
+.panel-dashboard .panel-heading{
+    background: #25af61;
+}
+
+.panel-dashboard .panel-heading .content-text{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+/** End panel dashboard**/
+
+
+/*** style Tooltip***/
+.panel-dashboard .panel-footer .tooltip.right .tooltip-inner {
+    background-color:#25AF61;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.panel-dashboard .panel-footer .tooltip.right .tooltip-arrow {
+    border-right-color: #25AF61;
+}
+.panel-dashboard .panel-footer .tooltip.left .tooltip-inner {
+    background-color:#25AF61;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.panel-dashboard .panel-footer .tooltip.left .tooltip-arrow {
+    border-left-color: #25AF61;
+}
+/** End Tooltip**/
+
+.line-section{
+    border-color:#dddddd;
+}
+
+.panel-profile-talent .panel-heading{
+    padding: 0px;
+}
+.panel-profile-talent .panel-heading h4{
+    background-color: #25AF61;
+    margin: 0px;
+    padding: 7px;
+}
+
+
+
+/*** End talent profile **/
+
+/** RoleCall Page **/
+.rolecall-page .tab-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.rolecall-page #overview .description-image {
+    margin: 10px;
+    max-width: 200px;
+}
+
+
+/** Rolecall **/
+
+.requirement-sheet-form .form-group,
+.talent-attributes-form .form-group {
+    min-height: 85px;
+}
+
+/** menu vertical admin **/
+
+.border-top-menu {
+    border-top: 1px solid #e7e7e7;;
+}
+
+/**
+Nav bar adjustments
+ */
+
+.navbar-default .navbar-top-links>li>a {
+
+    color: #fff;
+    line-height: 0.9em;
+}
+
+.navbar-default .navbar-top-links>.open>a,
+.navbar-default .navbar-top-links>.open>a:focus,
+.navbar-default .navbar-top-links>.open>a:hover,
+.navbar-default .navbar-top-links>li>a:hover,
+.navbar-default .navbar-top-links>li>a:focus {
+
+    /*background-color: #2E8B57;*/
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-default .navbar-top-links>li>a:focus,
+.navbar-default .navbar-top-links>li>a:hover {
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+
+}
+
+@media only screen and (max-width: 767px){
+
+    .navbar-top-links .dropdown-alerts {
+
+        margin-left: -63px;
+
+    }
+
+}
+
+/***** Scroll of Title Detail *****/
+.scroll{
+    height: 200px;
+    overflow-y: auto;
+}

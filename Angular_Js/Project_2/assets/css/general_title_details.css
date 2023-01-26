@@ -1,0 +1,33 @@
+/** Section of titles details and purchased details**/
+.item-small-detail{
+    font-size: small;
+}
+.price{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.reputation{
+    color: #ffc023;
+}
+
+.comments-box{
+    border:1px solid #797979;
+    overflow: scroll;
+    max-height: 300px;
+    min-height: 200px;
+    font-size: small;
+    padding: 5px;
+}
+
+.title-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #cfcfcf;
+    min-height: 80px;
+}
+/** End section of title details and purchased details**/
+
+
+
+

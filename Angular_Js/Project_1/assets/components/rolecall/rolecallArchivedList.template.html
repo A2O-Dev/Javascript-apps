@@ -1,0 +1,11 @@
+<load-page ng-show="cm.loading"></load-page>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">Archive RoleCalls</h1>
+    </div>
+    <div class="col-md-3 col-sm-4" ng-repeat="rolecall in cm.rolecallArchivedList">
+        <rolecall-card rolecall = "rolecall"></rolecall-card>
+    </div>
+</div>
+
+<pagination on-list-pagination="cm.loadRoleCallArchivedList(offset,limit)" page-size="cm.limit" total-count="cm.totalCount"></pagination>

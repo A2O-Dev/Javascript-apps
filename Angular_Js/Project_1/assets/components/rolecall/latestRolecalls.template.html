@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-3 col-sm-4" ng-repeat="rolecall in cm.latestRolecallList">
+        <rolecall-card rolecall = "rolecall"></rolecall-card>
+    </div>
+    <div class="col-md-12" ng-show="cm.loading !== true && cm.latestRolecallList.length == 0">
+        <p></p>
+        <p style="font-size: 1.1em;">You haven't created any Rolecall yet. Start creating <a href="/rolecalls/create"><strong>Your first RoleCall here.</strong></a></p>
+        <p>&nbsp;</p>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div ng-show="cm.titleDetail === false && cm.titlePreview === false">
+    <div class="row">
+        <div class="col-md-12">
+            <div  ng-class="{'hidden': !cm.showResultsFlag}">
+                <div ng-repeat="title in cm.found_titles">
+                    <title-item title-item="title" actions-type="cm.actionsType" on-Preview="cm.showPreview(titleItem)" on-Detail="cm.showDetail(titleItem)" show-status="false"></title-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Details -->
+<title-detail title-item="cm.tmpTitle" ng-show="cm.titleDetail === true" on-back="cm.hideDetail()"></title-detail>
+
+<!-- Preview -->
+<title-preview title-item="cm.tmpTitle" ng-show="cm.titlePreview === true" on-back="cm.hidePreview()"></title-preview>

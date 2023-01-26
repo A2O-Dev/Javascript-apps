@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">Title Detail
+            <span class="label tag-Status" ng-class="{
+                  'label-warning': cm.titleItem.status === 'draft',
+                  'label-success': cm.titleItem.status === 'published'}">{{ cm.titleItem.status | titleStatus }}
+            </span>
+        </h1>
+    </div>
+</div>
+
+<div class="row" ng-show="cm.authService.hasUser() && cm.authService.getUser().id == cm.titleItem.owner.id && cm.titleItem.fromSearch === false">
+    <div class="col-md-12">
+        <button class="btn btn-default btn-sm" style="margin: 2px" ng-click="cm.loadItemList()">Back</button>
+        <button class="btn btn-success btn-sm" style="margin: 2px" ng-if="cm.titleItem.source!='gotitle'"
+                ng-click="cm.showFormEdit()">Edit</button>
+        <button class="btn btn-danger btn-sm" style=" margin: 2px" ng-if="cm.titleItem.source!='gotitle'"
+                ng-click="cm.deleteTitle()">Remove</button>
+        <a class="btn btn-primary btn-sm" style="margin: 2px"
+           href="/api/titles/report?cod={{cm.titleItem.tokenReportPdf}}" target="_blank">Title Report</a>
+    </div>
+</div>
+<br>
+<page-messages page-messages="cm.pageMessages"></page-messages>
+
+<title-report title-item="cm.titleItem" header="cm.header"></title-report>

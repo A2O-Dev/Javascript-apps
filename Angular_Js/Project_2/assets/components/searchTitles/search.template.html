@@ -1,0 +1,246 @@
+<load-page ng-show="cm.loading"></load-page>
+
+<div class="row" ng-show="cm.view == 'search' && !cm.showAuthenticationFlag">
+
+    <div class="col-md-12">
+        <div class="row" ng-show="cm.showResults">
+
+            <!-- Search Bar -->
+            <div class="col-md-12">
+                <div class="searchBar">
+                    <form ng-submit="cm.searchTitles(cm.offset, cm.limit)">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="cm.location.name"
+                                   placeholder="Search the Exchange to Buy a Title"
+                                   vs-google-autocomplete="cm.options"
+                                   vs-autocomplete-validator
+                                   vs-place-id="cm.location.placeId"
+                                   vs-street-number="cm.location.streetNumber"
+                                   vs-street="cm.location.street"
+                                   vs-city="cm.location.city"
+                                   vs-state="cm.location.state"
+                                   vs-country-short="cm.location.countryCode"
+                                   vs-country="cm.location.country"
+                                   vs-post-code="cm.location.postCode"
+                                   vs-district="cm.location.district"
+                                   vs-latitude="cm.location.latitude"
+                                   vs-longitude="cm.location.longitude"
+                                   ng-required="true"
+                            />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i><span ng-show="cm.iconOnly !== true"> Search</span></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-12" ng-show="!cm.formFilter">
+                <p><i class="fas fa-info-circle text-primary"></i><em> If you want to add filters to your search, <a ng-click="cm.showFormFilter()" style="cursor: pointer"><strong>click here</strong></a></em></p>
+            </div>
+
+            <!-- Additional Search Filters -->
+            <div class="col-md-12" ng-show="cm.formFilter">
+                <div class="border">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="text-primary">Search Type:</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="searchType" ng-model="cm.searchFilter.searchType" value="commercial"> Commercial
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="searchType" ng-model="cm.searchFilter.searchType" value="residential"> Residential
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon text-primary"><strong>County</strong></span>
+                                    <input class="form-control" ng-model="cm.location.district" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label class="text-primary">Date Searched <input class="check-date" type="checkbox" ng-click="cm.checkDateSearch()" ng-model="cm.searchFilter.dateSearch"></label>
+
+                                <div class="border-date-range" ng-show="cm.searchFilter.dateSearch">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-primary">Start:</label>
+                                                <a href="" class="dropdown-toggle" id="startDateSearch" role="button" data-toggle="dropdown">
+                                                    <div class="input-group">
+                                                        <input data-date-time-input="LL" type="text" class="form-control" name="startDateSearch"
+                                                               ng-model="cm.searchFilter.startDateSearch">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    <datetimepicker ng-model="cm.searchFilter.startDateSearch" data-datetimepicker-config="{dropdownSelector: '#startDateSearch', modelType: 'moment', minView: 'day'}"/>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-primary">End:</label>
+                                                <a href="" class="dropdown-toggle" id="endDateSearch" role="button" data-toggle="dropdown">
+                                                    <div class="input-group">
+                                                        <input data-date-time-input="LL" type="text" class="form-control" name="endDateSearch"
+                                                               ng-model="cm.searchFilter.endDateSearch">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    <datetimepicker ng-model="cm.searchFilter.endDateSearch" data-datetimepicker-config="{dropdownSelector: '#endDateSearch', modelType: 'moment', minView: 'day'}"/>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label class="text-primary">Date Effective <input class="check-date" type="checkbox" ng-click="cm.checkDateEffective()" ng-model="cm.searchFilter.dateEffective"></label>
+
+                                <div class="border-date-range" ng-show="cm.searchFilter.dateEffective">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-primary">Start:</label>
+                                                <a href="" class="dropdown-toggle" id="startDateEffective" role="button" data-toggle="dropdown">
+                                                    <div class="input-group">
+                                                        <input data-date-time-input="LL" type="text" class="form-control" name="startDateEffective"
+                                                               ng-model="cm.searchFilter.startDateEffective">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    <datetimepicker ng-model="cm.searchFilter.startDateEffective" data-datetimepicker-config="{dropdownSelector: '#startDateEffective', modelType: 'moment', minView: 'day'}"/>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-primary">End:</label>
+                                                <a href="" class="dropdown-toggle" id="endDateEffective" role="button" data-toggle="dropdown">
+                                                    <div class="input-group">
+                                                        <input data-date-time-input="LL" type="text" class="form-control" name="endDateEffective"
+                                                               ng-model="cm.searchFilter.endDateEffective">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                    </div>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                    <datetimepicker ng-model="cm.searchFilter.endDateEffective" data-datetimepicker-config="{dropdownSelector: '#endDateEffective', modelType: 'moment', minView: 'day'}"/>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="text-primary">Search Document Types?</label><br/>
+                                <label class="radio-inline item-search-filter" ng-repeat="documentTypeItem in cm.documentTypes">
+                                    <input type="checkbox" value="{{ documentTypeItem.value }}"
+                                           ng-checked="cm.searchFilter.documentTypes.indexOf(documentTypeItem.value) > -1"
+                                           ng-click="cm.toggleItemInList(cm.searchFilter.documentTypes, documentTypeItem.value)"
+                                    > {{ documentTypeItem.name}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon text-primary"><strong>Legal Address <a href="" data-toggle="modal" data-target="#modalLegalAddress">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                            </a></strong></span>
+                                    <input class="form-control" ng-model="cm.searchFilter.LegalAddress">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modalLegalAddress" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Info</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+
+                                        When using this filter (Legal Address) it is important that there is a reference location in the location search bar. (Without this location, the filter will not work.)</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button class="btn btn-primary btn-sm" ng-click="cm.searchTitles(cm.offset, cm.limit)"><i class="fa fa-search"></i> Search</button>
+                                <button class="btn btn-default btn-sm" ng-click="cm.clearFormFilter()"><i class="fas fa-broom"></i> Clear</button>
+                                <button class="btn btn-default btn-sm" ng-click="cm.hideFormFilter()"><i class="far fa-eye-slash"></i> Hide</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <search-result></search-result>
+
+        <pagination ng-show="cm.showResults" on-list-pagination="cm.searchTitles(offset,limit)" page-size="cm.limit" total-count="cm.totalCount"></pagination>
+
+        <div class="alert alert-info" role="alert" ng-show="cm.titlesList.length == 0">
+            <strong><i class="fa fa-chart-line"></i> We keep growing.</strong> Our apologize no title could be found near the specified address. We're working on collecting more for you. Please try again in a few days.
+        </div>
+
+        <search-job-ad on-click="cm.showPostJobForm()" ng-show="cm.totalPostulantJobs > 0 && cm.showResults"></search-job-ad>
+    </div>
+
+</div>
+
+<div ng-show="cm.showAuthenticationFlag">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="login">
+                <login-form on-login="cm.proceedToSearchJob(authUser)"></login-form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<search-job-form ng-show="cm.view == 'search-job-form'" location="cm.location"></search-job-form>
